@@ -1,4 +1,4 @@
 
-.next/static/
-.next/cache/
-.next/server
+.next/
+src/.DS_Store
+.DS_Store
