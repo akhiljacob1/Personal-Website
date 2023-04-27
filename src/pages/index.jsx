@@ -12,10 +12,9 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
+import logoDishy from '@/images/logos/dishy.png'
+import logoZedball from '@/images/logos/zedball.png'
+import logoNextmove from '@/images/logos/nextmove.png'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -99,11 +98,28 @@ function Article({ article }) {
   )
 }
 
-function SocialLink({ icon: Icon, ...props }) {
+function TextLink({ href, children }) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
+    <Link
+      href={href}
+      className="text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+    >
+      <span>{children}</span>
     </Link>
+  )
+}
+
+function SocialLink({ className, href, children, icon: Icon }) {
+  return (
+    <li className={clsx(className, 'flex')}>
+      <Link
+        href={href}
+        className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+      >
+        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+        <span className="ml-4">{children}</span>
+      </Link>
+    </li>
   )
 }
 
@@ -139,73 +155,53 @@ function Newsletter() {
 function Resume() {
   let resume = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
-      logo: logoPlanetaria,
-      start: '2019',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear(),
-      },
+      company: 'Nextmove',
+      title: 'Full-stack Developer',
+      description: 'Open text feedback tool drawing insights with AI.',
+      logo: logoNextmove
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      company: 'Zedball',
+      title: 'Junior Full-stack Developer',
+      description: 'Multiplayer football manager game with Sorare NFT collectible cards.',
+      logo: logoZedball
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
-      logo: logoFacebook,
-      start: '2011',
-      end: '2014',
-    },
-    {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
-    },
+      company: 'Dishy',
+      title: 'Intern Full-stack Developer',
+      description: 'Healthy Meal delivery. Food delivery platform for healthy meals.',
+      logo: logoDishy
+    }
   ]
 
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Work</span>
+        <span className="ml-3">Projects</span>
       </h2>
-      <ol className="mt-6 space-y-4">
+      <ol className="mt-6 space-y-6">
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
             <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+              <Image src={role.logo} alt="" className="w-9" unoptimized />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
-              <dt className="sr-only">Company</dt>
-              <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                {role.company}
-              </dd>
+              <div className='flex justify-between w-full'>
+                <dt className="sr-only">Company</dt>
+                <dd className="flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                  {role.company}
+                </dd>
+                <dt className="sr-only">Date</dt>
+                <dd
+                  className="text-xs text-zinc-400 dark:text-zinc-600"
+                >
+                  {role.title}
+                </dd>
+              </div>
               <dt className="sr-only">Role</dt>
               <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-                {role.title}
-              </dd>
-              <dt className="sr-only">Date</dt>
-              <dd
-                className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                aria-label={`${role.start.label ?? role.start} until ${
-                  role.end.label ?? role.end
-                }`}
-              >
-                <time dateTime={role.start.dateTime ?? role.start}>
-                  {role.start.label ?? role.start}
-                </time>{' '}
-                <span aria-hidden="true">—</span>{' '}
-                <time dateTime={role.end.dateTime ?? role.end}>
-                  {role.end.label ?? role.end}
-                </time>
+                {role.description}
               </dd>
             </dl>
           </li>
@@ -215,6 +211,47 @@ function Resume() {
         Download CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
+    </div>
+  )
+}
+
+function Socials() {
+  let socials = [
+    {
+      name: 'LinkedIn',
+      icon: LinkedInIcon,
+      link: 'https://www.linkedin.com/in/akhiljacob/',
+    },
+    {
+      name: 'GitHub',
+      icon: GitHubIcon,
+      link: 'https://github.com/akhiljacob1',
+    },
+    {
+      name: 'Twitter',
+      icon: TwitterIcon,
+      link: 'https://twitter.com/TheAkhilJacob',
+    },
+  ]
+
+  return (
+    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+      <div>
+        <ul role="list">
+          {socials.map((social, socialIndex) => (
+            <SocialLink href={social.link} icon={social.icon} className="mt-4">
+              Follow on {social.name}
+            </SocialLink>  
+          ))}
+          <SocialLink
+            href="mailto:spencer@planetaria.tech"
+            icon={MailIcon}
+            className="mt-8 border-t border-zinc-100 pt-6 dark:border-zinc-700/40"
+          >
+            akhil@email.com(update)
+          </SocialLink>
+        </ul>
+      </div>
     </div>
   )
 }
@@ -251,59 +288,62 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>
-          Spencer Sharp - Software designer, founder, and amateur astronaut
+          Akhil Jacob - Full-stack developer and an amateur guitarist.
         </title>
         <meta
           name="description"
-          content="I’m Spencer, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
+          content="I’m Akhil, a full-stack developer with experience developing apps for myself and clients."
         />
       </Head>
       <Container className="mt-9">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software designer, founder, and amateur astronaut.
-          </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Spencer, a software designer and entrepreneur based in New York
-            City. I’m the founder and CEO of Planetaria, where we develop
-            technologies that empower regular people to explore space on their
-            own terms.
-          </p>
-          <div className="mt-6 flex gap-6">
-            <SocialLink
-              href="https://twitter.com"
-              aria-label="Follow on Twitter"
-              icon={TwitterIcon}
-            />
-            <SocialLink
-              href="https://instagram.com"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
-              href="https://github.com"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="https://linkedin.com"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
+        <div className='divide-y divide-zinc-100 dark:divide-zinc-700/40'>
+          <div className="max-w-3xl pb-24 md:pb-28">
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              Ruby on Rails developer with a passion for learning and applying
+              (change this with js to show all the things you like).
+            </h1>
+            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+              Hey! I'm Akhil, a full-stack developer that loves creating
+              innovative web applications. I have worked on various projects,
+              including a web3 game and a SaaS app. I am
+              passionate about learning and view every challenge and opportunity
+              as a way to continue my personal and professional growth.
+            </p>
           </div>
-        </div>
-      </Container>
-      <Photos />
-      <Container className="mt-24 md:mt-28">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))}
-          </div>
-          <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
-            <Resume />
+          <div className="pt-24 md:pt-28">
+            <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+              <div className="lg:order-first lg:row-span-2">
+                <div className="space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+                  <p>
+                    I'm a developer with a passion for creating cool
+                    things. I've been tinkering with code for about four years now, but
+                    it's only been two years since I started my professional journey.
+                  </p>
+                  <p>
+                    Before I became a full-fledged developer, I used to dabble in small
+                    personal projects in Python. But then I completed a six-month
+                    internship in full-stack development with Ruby on Rails and stumbled
+                    upon a new interest. Since then I've worked with clients to
+                    develop web apps.
+                  </p>
+                  <p>
+                    I'm always excited to learn about new tech and adapt to changing times.
+                    In the past two years, I've been exploring the web3 space and AI,
+                    which led me to work on exciting projects like
+                    <TextLink href='#'> Zedball </TextLink> and
+                    <TextLink href='#'> Nextmove</TextLink>.
+                  </p>
+                  <p>
+                    I'm always open to new ideas and opportunities. If you have a
+                    project you'd like to discuss or just want to say hi, reach out to me.
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-10 lg:pl-16 xl:pl-24">
+                <Resume />
+                <Socials />
+              </div>
+            </div>
           </div>
         </div>
       </Container>
