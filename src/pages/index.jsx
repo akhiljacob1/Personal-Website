@@ -6,6 +6,7 @@ import clsx from 'clsx'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
+import { TypeAnimation } from 'react-type-animation'
 import {
   GitHubIcon,
   InstagramIcon,
@@ -298,16 +299,27 @@ export default function Home({ articles }) {
       <Container className="mt-9">
         <div className='divide-y divide-zinc-100 dark:divide-zinc-700/40'>
           <div className="max-w-3xl pb-24 md:pb-28">
-            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              Ruby on Rails developer with a passion for learning and applying
-              (change this with js to show all the things you like).
+            <h1 className="text-2xl h-32 sm:h-60 md:h-48 xl:h-32 overflow-auto font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              <span className='mr-3'>Ruby on Rails developer passionate about</span>
+              <TypeAnimation
+                sequence={[
+                  'learning and applying.', 2000,
+                  'startups.', 2000,
+                  'making meaningful solutions.', 2000,
+                  'sharing knowledge.', 2000,
+                  'playing music.', 2000,
+                ]}
+                deletionSpeed={80}
+                className='text-teal-400'
+                repeat={Infinity}
+              />
             </h1>
-            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+            <p className="mt-2 text-base text-zinc-600 dark:text-zinc-400">
               Hey! I'm Akhil, a full-stack developer that loves creating
-              innovative web applications. I have worked on various projects,
+              web applications. I've worked on various projects,
               including a web3 game and a SaaS app. I am
               passionate about learning and view every challenge and opportunity
-              as a way to continue my personal and professional growth.
+              as a way to continue my growth.
             </p>
           </div>
           <div className="pt-24 md:pt-28">
@@ -335,7 +347,7 @@ export default function Home({ articles }) {
                   </p>
                   <p>
                     I'm always open to new ideas and opportunities. If you have a
-                    project you'd like to discuss or just want to say hi, reach out to me.
+                    project you want to chat about or just want to say hi, reach out to me! :)
                   </p>
                 </div>
               </div>
