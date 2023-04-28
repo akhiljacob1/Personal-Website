@@ -7,6 +7,8 @@ import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import { TypeAnimation } from 'react-type-animation'
+import { FadeInMotion } from '@/components/FadeInMotion'
+import { FadeIn } from '@/components/FadeInMotion'
 import {
   GitHubIcon,
   InstagramIcon,
@@ -193,14 +195,14 @@ function Resume() {
                 <dd className="flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
                   {role.company}
                 </dd>
-                <dt className="sr-only">Date</dt>
+                <dt className="sr-only">Position</dt>
                 <dd
                   className="text-xs text-zinc-400 dark:text-zinc-600"
                 >
                   {role.title}
                 </dd>
               </div>
-              <dt className="sr-only">Role</dt>
+              <dt className="sr-only">Company Description</dt>
               <dd className="text-xs text-zinc-500 dark:text-zinc-400">
                 {role.description}
               </dd>
@@ -284,7 +286,7 @@ function Photos() {
   )
 }
 
-export default function Home({ articles }) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -298,9 +300,9 @@ export default function Home({ articles }) {
       </Head>
       <Container className="mt-9">
         <div className='divide-y divide-zinc-100 dark:divide-zinc-700/40'>
-          <div className="max-w-3xl pb-24 md:pb-28">
+          <FadeInMotion once_boolean={false} className="max-w-3xl pb-24 md:pb-28">
             <h1 className="text-2xl h-32 sm:h-60 md:h-48 xl:h-32 overflow-auto font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              <span className='mr-3'>Ruby on Rails developer passionate about</span>
+              <span className='mr-1 sm:mr-3'>Ruby on Rails developer passionate about</span>
               <TypeAnimation
                 sequence={[
                   'learning and applying.', 2000,
@@ -321,9 +323,9 @@ export default function Home({ articles }) {
               passionate about learning and view every challenge and opportunity
               as a way to continue my growth.
             </p>
-          </div>
+          </FadeInMotion>
           <div className="pt-24 md:pt-28">
-            <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+            <FadeInMotion variants={FadeIn} className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
               <div className="lg:order-first lg:row-span-2">
                 <div className="space-y-7 text-base text-zinc-600 dark:text-zinc-400">
                   <p>
@@ -355,7 +357,7 @@ export default function Home({ articles }) {
                 <Resume />
                 <Socials />
               </div>
-            </div>
+            </FadeInMotion>
           </div>
         </div>
       </Container>

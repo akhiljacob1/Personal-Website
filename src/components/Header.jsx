@@ -7,6 +7,7 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import avatarImage from '@/images/avatar.jpg'
+import { FadeInMotion, FadeInAndDown } from '@/components/FadeInMotion'
 
 function CloseIcon(props) {
   return (
@@ -376,18 +377,20 @@ export function Header() {
                 style={{ position: 'var(--header-inner-position)' }}
               >
                 <div className="relative">
-                  <AvatarContainer
-                    className="absolute left-0 top-3 origin-left transition-opacity"
-                    style={{
-                      opacity: 'var(--avatar-border-opacity, 0)',
-                      transform: 'var(--avatar-border-transform)',
-                    }}
-                  />
-                  <Avatar
-                    large
-                    className="block h-16 w-16 origin-left"
-                    style={{ transform: 'var(--avatar-image-transform)' }}
-                  />
+                  <FadeInMotion variants={FadeInAndDown} once_boolean={false}>
+                    <AvatarContainer
+                      className="absolute left-0 top-3 origin-left transition-opacity"
+                      style={{
+                        opacity: 'var(--avatar-border-opacity, 0)',
+                        transform: 'var(--avatar-border-transform)',
+                      }}
+                    />
+                    <Avatar
+                      large
+                      className="block h-16 w-16 origin-left"
+                      style={{ transform: 'var(--avatar-image-transform)' }}
+                    />
+                  </FadeInMotion>
                 </div>
               </div>
             </Container>
