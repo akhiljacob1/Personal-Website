@@ -15,14 +15,14 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from '@/components/SocialIcons'
-import logoDishy from '@/images/logos/dishy.png'
-import logoZedball from '@/images/logos/zedball.png'
-import logoNextmove from '@/images/logos/nextmove.png'
-import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-2.jpg'
-import image3 from '@/images/photos/image-3.jpg'
-import image4 from '@/images/photos/image-4.jpg'
-import image5 from '@/images/photos/image-5.jpg'
+import LogoDishy from '@/images/logos/dishy.png'
+import LogoZedball from '@/images/logos/zedball.png'
+import LogoNextmove from '@/images/logos/nextmove.png'
+import Image1 from '@/images/photos/image-1.jpg'
+import Image2 from '@/images/photos/image-2.jpg'
+import Image3 from '@/images/photos/image-3.jpg'
+import Image4 from '@/images/photos/image-4.jpg'
+import Image5 from '@/images/photos/image-5.jpg'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
@@ -161,19 +161,19 @@ function Resume() {
       company: 'Nextmove',
       title: 'Full-stack Developer',
       description: 'Open text feedback tool drawing insights with AI.',
-      logo: logoNextmove
+      logo: LogoNextmove
     },
     {
       company: 'Zedball',
       title: 'Junior Full-stack Developer',
       description: 'Multiplayer football manager game with Sorare NFT collectible cards.',
-      logo: logoZedball
+      logo: LogoZedball
     },
     {
       company: 'Dishy',
       title: 'Intern Full-stack Developer',
       description: 'Healthy Meal delivery. Food delivery platform for healthy meals.',
-      logo: logoDishy
+      logo: LogoDishy
     }
   ]
 
@@ -265,7 +265,7 @@ function Photos() {
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
+        {[Image1, Image2, Image3, Image4, Image5].map((image, imageIndex) => (
           <div
             key={image.src}
             className={clsx(
