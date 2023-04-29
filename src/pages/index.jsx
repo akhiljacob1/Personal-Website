@@ -4,7 +4,6 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
-import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import { TypeAnimation } from 'react-type-animation'
 import { FadeInMotion } from '@/components/FadeInMotion'
@@ -18,12 +17,6 @@ import {
 import LogoDishy from '@/images/logos/dishy.png'
 import LogoZedball from '@/images/logos/zedball.png'
 import LogoNextmove from '@/images/logos/nextmove.png'
-import Image1 from '@/images/photos/image-1.jpg'
-import Image2 from '@/images/photos/image-2.jpg'
-import Image3 from '@/images/photos/image-3.jpg'
-import Image4 from '@/images/photos/image-4.jpg'
-import Image5 from '@/images/photos/image-5.jpg'
-import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 
@@ -205,11 +198,11 @@ function Socials() {
             </SocialLink>  
           ))}
           <SocialLink
-            href="mailto:spencer@planetaria.tech"
+            href="mailto:akhiljacob98@gmail.com"
             icon={MailIcon}
             className="mt-8 border-t border-zinc-100 pt-6 dark:border-zinc-700/40"
           >
-            akhil@email.com(update)
+            akhiljacob98@gmail.com
           </SocialLink>
         </ul>
       </div>
@@ -230,66 +223,64 @@ export default function Home() {
         />
       </Head>
       <Container className="mt-9">
-        <div className='divide-y divide-zinc-100 dark:divide-zinc-700/40'>
-          <FadeInMotion once_boolean={false} className="max-w-3xl pb-24 md:pb-28">
-            <h1 className="text-2xl h-32 sm:h-60 md:h-48 xl:h-32 overflow-auto font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              <span className='mr-1 sm:mr-3'>Ruby on Rails developer passionate about</span>
-              <TypeAnimation
-                sequence={[
-                  'learning and applying.', 2000,
-                  'startups.', 2000,
-                  'making meaningful solutions.', 2000,
-                  'sharing knowledge.', 2000,
-                  'playing music.', 2000,
-                ]}
-                deletionSpeed={80}
-                className='text-teal-400'
-                repeat={Infinity}
-              />
-            </h1>
-            <p className="mt-2 text-base text-zinc-600 dark:text-zinc-400">
-              Hey! I'm Akhil, a full-stack developer that loves creating
-              web applications. I've worked on various projects,
-              including a web3 game and a SaaS app. I am
-              passionate about learning and view every challenge and opportunity
-              as a way to continue my growth.
-            </p>
+        <FadeInMotion once_boolean={false} className="max-w-3xl pb-24 md:pb-28">
+          <h1 className="text-2xl h-32 sm:h-60 md:h-48 xl:h-32 overflow-auto font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+            <span className='mr-1 sm:mr-3'>Ruby on Rails developer passionate about</span>
+            <TypeAnimation
+              sequence={[
+                'learning and applying.', 2000,
+                'startups.', 2000,
+                'making meaningful solutions.', 2000,
+                'sharing knowledge.', 2000,
+                'playing music.', 2000,
+              ]}
+              deletionSpeed={80}
+              className='text-teal-400'
+              repeat={Infinity}
+            />
+          </h1>
+          <p className="mt-2 text-base text-zinc-600 dark:text-zinc-400">
+            Hey! I'm Akhil, a full-stack developer that loves creating
+            web applications. I've worked on various projects,
+            including a web3 game and a SaaS app. I am
+            passionate about learning and view every challenge and opportunity
+            as a way to continue my growth.
+          </p>
+        </FadeInMotion>
+        <div className="pt-24 md:pt-28">
+          <FadeInMotion variants={FadeIn} className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+            <div className="lg:order-first lg:row-span-2">
+              <div className="space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+                <p>
+                  I'm a developer with a passion for creating cool
+                  things. I've been tinkering with code for about four years now, but
+                  it's only been two years since I started my professional journey.
+                </p>
+                <p>
+                  Before I became a full-fledged developer, I used to dabble in small
+                  personal projects in Python. But then I completed a six-month
+                  internship in full-stack development with Ruby on Rails and stumbled
+                  upon a new interest. Since then I've worked with clients to
+                  develop web apps.
+                </p>
+                <p>
+                  I'm always excited to learn about new tech and adapt to changing times.
+                  In the past two years, I've been exploring the web3 space and AI,
+                  which led me to work on exciting projects like
+                  <TextLink href='#'> Zedball </TextLink> and
+                  <TextLink href='#'> Nextmove</TextLink>.
+                </p>
+                <p>
+                  I'm always open to new ideas and opportunities. If you have a
+                  project you want to chat about or just want to say hi, reach out to me! :)
+                </p>
+              </div>
+            </div>
+            <div className="space-y-10 lg:pl-16 xl:pl-24">
+              <Resume />
+              <Socials />
+            </div>
           </FadeInMotion>
-          <div className="pt-24 md:pt-28">
-            <FadeInMotion variants={FadeIn} className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-              <div className="lg:order-first lg:row-span-2">
-                <div className="space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-                  <p>
-                    I'm a developer with a passion for creating cool
-                    things. I've been tinkering with code for about four years now, but
-                    it's only been two years since I started my professional journey.
-                  </p>
-                  <p>
-                    Before I became a full-fledged developer, I used to dabble in small
-                    personal projects in Python. But then I completed a six-month
-                    internship in full-stack development with Ruby on Rails and stumbled
-                    upon a new interest. Since then I've worked with clients to
-                    develop web apps.
-                  </p>
-                  <p>
-                    I'm always excited to learn about new tech and adapt to changing times.
-                    In the past two years, I've been exploring the web3 space and AI,
-                    which led me to work on exciting projects like
-                    <TextLink href='#'> Zedball </TextLink> and
-                    <TextLink href='#'> Nextmove</TextLink>.
-                  </p>
-                  <p>
-                    I'm always open to new ideas and opportunities. If you have a
-                    project you want to chat about or just want to say hi, reach out to me! :)
-                  </p>
-                </div>
-              </div>
-              <div className="space-y-10 lg:pl-16 xl:pl-24">
-                <Resume />
-                <Socials />
-              </div>
-            </FadeInMotion>
-          </div>
         </div>
       </Container>
     </>
