@@ -243,8 +243,8 @@ function Socials() {
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <div>
         <ul role="list">
-          {socials.map((social, socialIndex) => (
-            <SocialLink href={social.link} icon={social.icon} className="mt-4">
+          {socials.map((social) => (
+            <SocialLink href={social.link} icon={social.icon} key={social.name} className="mt-4">
               Follow on {social.name}
             </SocialLink>  
           ))}
