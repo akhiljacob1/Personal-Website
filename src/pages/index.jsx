@@ -20,7 +20,7 @@ import LogoNextmove from '@/images/logos/nextmove.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 
-function MailIcon(props) {
+export function MailIcon(props) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -92,7 +92,7 @@ function TextLink({ href, children }) {
   )
 }
 
-function SocialLink({ className, href, children, icon: Icon }) {
+export function SocialLink({ className, href, children, icon: Icon }) {
   return (
     <li className={clsx(className, 'flex')}>
       <Link
@@ -190,22 +190,20 @@ function Socials() {
 
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <div>
-        <ul role="list">
-          {socials.map((social) => (
-            <SocialLink href={social.link} icon={social.icon} key={social.name} className="mt-4">
-              Follow on {social.name}
-            </SocialLink>  
-          ))}
-          <SocialLink
-            href="mailto:akhiljacob98@gmail.com"
-            icon={MailIcon}
-            className="mt-8 border-t border-zinc-100 pt-6 dark:border-zinc-700/40"
-          >
-            akhiljacob98@gmail.com
-          </SocialLink>
-        </ul>
-      </div>
+      <ul role="list">
+        {socials.map((social) => (
+          <SocialLink href={social.link} icon={social.icon} key={social.name} className="mt-4">
+            Follow on {social.name}
+          </SocialLink>  
+        ))}
+        <SocialLink
+          href="mailto:akhiljacob98@gmail.com"
+          icon={MailIcon}
+          className="mt-8 border-t border-zinc-100 pt-6 dark:border-zinc-700/40"
+        >
+          akhiljacob98@gmail.com
+        </SocialLink>
+      </ul>
     </div>
   )
 }
