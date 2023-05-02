@@ -88,7 +88,7 @@ function MobileNavItem({ href, children }) {
 function MobileNavigation(props) {
   return (
     <Popover {...props}>
-      <Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+      <Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-skin-primary-2 dark:ring-white/10 dark:hover:ring-white/20">
         Menu
         <ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
       </Popover.Button>
@@ -119,14 +119,14 @@ function MobileNavigation(props) {
           >
             <div className="flex flex-row-reverse items-center justify-between">
               <Popover.Button aria-label="Close menu" className="-m-1 p-1">
-                <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
+                <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-skin-secondary-1" />
               </Popover.Button>
-              <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+              <h2 className="text-sm font-medium text-zinc-600 dark:text-skin-secondary-1">
                 Navigation
               </h2>
             </div>
             <nav className="mt-6">
-              <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
+              <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-skin-primary-3">
                 <MobileNavItem href="/">Home</MobileNavItem>
                 <MobileNavItem href="/articles">Articles</MobileNavItem>
                 <MobileNavItem href="/products">Products</MobileNavItem>
@@ -149,8 +149,8 @@ function NavItem({ href, children }) {
         className={clsx(
           'relative block px-3 py-2 transition',
           isActive
-            ? 'text-primary-C dark:text-primary-C-lighter'
-            : 'hover:text-primary-C dark:hover:text-primary-C-lighter'
+            ? 'text-skin-accent-2 dark:text-skin-accent-1'
+            : 'hover:text-skin-accent-2 dark:hover:text-skin-accent-1'
         )}
       >
         {children}
@@ -165,7 +165,7 @@ function NavItem({ href, children }) {
 function DesktopNavigation(props) {
   return (
     <nav {...props}>
-      <ul className="flex rounded-full px-3 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+      <ul className="flex rounded-full px-3 text-sm font-medium text-zinc-800 dark:text-skin-primary-2">
         <NavItem href="/">Home</NavItem>
         <NavItem href="/articles">Articles</NavItem>
         <NavItem href="/products">Products</NavItem>
@@ -204,7 +204,7 @@ function ModeToggle() {
       onClick={toggleMode}
     >
       <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-primary-C [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600" />
-      <MoonIcon className="[@media_not_(prefers-color-scheme:dark)]:fill-primary-text-primary-C-lighter/10 hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:stroke-primary-C" />
+      <MoonIcon className="[@media_not_(prefers-color-scheme:dark)]:fill-primary-text-skin-accent-1/10 hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:stroke-primary-C" />
     </button>
   )
 }

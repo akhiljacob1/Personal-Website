@@ -81,7 +81,7 @@ function TextLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="text-sm font-medium text-zinc-800 transition hover:text-primary-C dark:text-zinc-200 dark:hover:text-primary-C"
+      className="text-sm font-medium text-zinc-800 transition hover:text-skin-accent-2 dark:text-skin-primary-2 dark:hover:text-skin-accent-2"
     >
       <span>{children}</span>
     </Link>
@@ -93,7 +93,7 @@ export function SocialLink({ className, href, children, icon: Icon }) {
     <li className={clsx(className, 'flex')}>
       <Link
         href={href}
-        className="group flex text-sm font-medium text-zinc-800 transition hover:text-primary-C dark:text-zinc-200 dark:hover:text-primary-C"
+        className="group flex text-sm font-medium text-zinc-800 transition hover:text-skin-accent-2 dark:text-skin-primary-2 dark:hover:text-skin-accent-2"
       >
         <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-primary-C" />
         <span className="ml-4">{children}</span>
@@ -127,7 +127,7 @@ function Resume() {
 
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-skin-primary-1">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Products</span>
       </h2>
@@ -140,16 +140,16 @@ function Resume() {
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <div className="flex w-full justify-between">
                 <dt className="sr-only">Company</dt>
-                <dd className="flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                <dd className="flex-none text-sm font-medium text-zinc-900 dark:text-skin-primary-1">
                   {role.company}
                 </dd>
                 <dt className="sr-only">Position</dt>
-                <dd className="text-xs text-zinc-400 dark:text-zinc-600">
+                <dd className="text-xs text-zinc-400 dark:text-skin-secondary-3">
                   {role.title}
                 </dd>
               </div>
               <dt className="sr-only">Company Description</dt>
-              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+              <dd className="text-xs text-zinc-500 dark:text-skin-secondary-1">
                 {role.description}
               </dd>
             </dl>
@@ -222,7 +222,7 @@ export default function Home() {
       </Head>
       <Container className="mt-9">
         <FadeInMotion once_boolean={false} className="max-w-3xl pb-24 md:pb-28">
-          <h1 className="h-32 overflow-auto text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:h-60 sm:text-5xl md:h-48 xl:h-32">
+          <h1 className="h-32 overflow-auto text-2xl font-bold tracking-tight text-zinc-800 dark:text-skin-primary-1 sm:h-60 sm:text-5xl md:h-48 xl:h-32">
             <span className="mr-1 sm:mr-3">
               Ruby on Rails developer passionate about
             </span>
@@ -235,11 +235,11 @@ export default function Home() {
                 'playing music.', 2000,
               ]}
               deletionSpeed={80}
-              className="text-primary-C-lighter"
+              className="text-skin-accent-1"
               repeat={Infinity}
             />
           </h1>
-          <p className="mt-2 text-base text-zinc-600 dark:text-zinc-400">
+          <p className="mt-2 text-base text-zinc-600 dark:text-skin-secondary-1">
             Hey! I'm Akhil, a full-stack developer that loves creating web
             applications. I've worked on various projects, including a web3 game
             and a SaaS app. I am passionate about learning and view every
@@ -252,7 +252,7 @@ export default function Home() {
             className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2"
           >
             <div className="lg:order-first lg:row-span-2">
-              <div className="space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+              <div className="space-y-7 text-base text-zinc-600 dark:text-skin-secondary-1">
                 <p>
                   I'm a developer with a passion for creating cool things. I've
                   been tinkering with code for about four years now, but it's

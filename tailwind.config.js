@@ -6,14 +6,43 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // For borders
+        current: "var(--primary-color)",
+      },
+      textColor: {
+        skin: {
+          'primary-1': "var(--primary-color-1)",
+          'primary-2': "var(--primary-color-2)",
+          'primary-3': "var(--primary-color-3)",
+          'secondary-1': "var(--secondary-color-1)",
+          'secondary-2': "var(--secondary-color-2)",
+          'secondary-3': "var(--secondary-color-3)",
+          secondary: "var(--secondary-color)",
+          accent: "var(--accent-color)",
+        }
+      },
+      // backgroundColor: {
+      //   // If needed
+      //   skin: {
+      //     fill: "var(--fill-color-1)",
+      //   }
+      // },
+      gradientColorStops: {
+        skin: {
+          first: "var(--fill-color-1)",
+          second: "var(--fill-color-2)",
+          third: "var(--fill-color-3)",
+        }
+      },
+      colors: {
         primary: {
           A: "#d946ef",
           B: "#10b981",
-          C: "#f59e0b",
+          C: "#EF476F",
           D: "#06b6d4",
           "A-lighter": "#e879f9",
           "B-lighter": "#34d399",
-          "C-lighter": "#fbbf24",
+          "C-lighter": "#EF476F",
           "D-lighter": "#22d3ee",
         }
       }
