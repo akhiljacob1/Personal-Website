@@ -1,11 +1,7 @@
 import { Container } from '@/components/Container'
 import { SocialLink } from '@/pages/index'
 import { MailIcon } from '@/pages/index'
-import {
-  GitHubIcon,
-  LinkedInIcon,
-  TwitterIcon,
-} from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/SocialIcons'
 
 export function Footer() {
   let socials = [
@@ -33,15 +29,20 @@ export function Footer() {
   return (
     <footer className="mt-32">
       <Container.Outer>
-        <div className="border-t border-zinc-100 pb-16 pt-10 dark:border-zinc-700/40">
+        <div className="border-t border-zinc-100 pb-16 pt-10 dark:border-skin-border-1/40">
           <Container.Inner>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-              <div className="flex gap-2 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+              <div className="flex gap-2 text-sm font-medium text-zinc-800 dark:text-skin-primary-2">
                 {socials.map((social) => (
-                  <SocialLink href={social.link} icon={social.icon} key={social.name} className="mt-4" />
+                  <SocialLink
+                    href={social.link}
+                    icon={social.icon}
+                    key={social.name}
+                    className="mt-4"
+                  />
                 ))}
               </div>
-              <p className="text-sm font-medium text-zinc-400 dark:text-zinc-500">
+              <p className="text-sm font-medium text-zinc-400 dark:text-skin-secondary-2">
                 &copy; {new Date().getFullYear()} • Akhil Jacob
               </p>
             </div>

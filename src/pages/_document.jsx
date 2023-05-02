@@ -51,7 +51,8 @@ export default function Document() {
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
         />
       </Head>
-      <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
+      {/* set bg-color here to choose the color that appears on the edge when we scroll and reach that edge. */}
+      <body className="flex h-full flex-col bg-no-repeat bg-amber-200 bg-gradient-to-b from-amber-200 via-amber-100 to-amber-200 to-50% dark:bg-skin-bg-1 dark:from-skin-bg-1 dark:via-skin-bg-2 dark:to-skin-bg-3 dark:to-50%">
         <Main />
         <NextScript />
       </body>

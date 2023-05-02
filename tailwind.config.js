@@ -6,17 +6,31 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          A: "#d946ef",
-          B: "#10b981",
-          C: "#f59e0b",
-          D: "#06b6d4",
-          "A-lighter": "#e879f9",
-          "B-lighter": "#34d399",
-          "C-lighter": "#fbbf24",
-          "D-lighter": "#22d3ee",
-        }
-      }
+        skin: {
+          'primary-1': 'var(--primary-color-1)',
+          'primary-2': 'var(--primary-color-2)',
+          'secondary-1': 'var(--secondary-color-1)',
+          'secondary-2': 'var(--secondary-color-2)',
+          'secondary-3': 'var(--secondary-color-3)',
+          'accent-1': 'var(--accent-color-1)',
+          'accent-2': 'var(--accent-color-2)',
+          'accent-1/40': 'var(--accent-color-1-40)',
+          'accent-2/40': 'var(--accent-color-2-40)',
+          'accent-1/0': 'var(--accent-color-1-0)',
+          'accent-2/0': 'var(--accent-color-2-0)',
+          'bg-1': 'var(--bg-color-1)',
+          'bg-2': 'var(--bg-color-2)',
+          'bg-3': 'var(--bg-color-3)',
+          'border-1': 'var(--border-color-1)',
+          'border-1/40': 'var(--border-color-1-40)',
+          'border-1/50': 'var(--border-color-1-50)',
+          'border-2/5': 'var(--border-color-2-5)',
+          'border-2/10': 'var(--border-color-2-10)',
+          'border-2/20': 'var(--border-color-2-20)',
+          'fill': 'var(--fill-color)',
+          'fill/50': 'var(--fill-color-50)',
+        },
+      },
     },
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],

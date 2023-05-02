@@ -2,3 +2,55 @@
 @import 'tailwindcss/components';
 @import './prism.css';
 @import 'tailwindcss/utilities';
+
+@layer base {
+  :root {
+    --primary-color-1: #fafafa; /* zinc-50 */
+    --primary-color-2: #f4f4f5; /* zinc-100 */
+    --secondary-color-1: #8E92A8;
+    --secondary-color-2: #71717a; /* zinc-500 */
+    --secondary-color-3: #475569; /* slate-600 */
+    --accent-color-1: #EA5376;
+    --accent-color-1-0: #EA537600;
+    --accent-color-1-40: #EA537A66;
+    --accent-color-2: #EA5376;
+    --accent-color-2-0: #EA537A00;
+    --accent-color-2-40: #EA537A66;
+    --bg-color-1: #0e132f;
+    --bg-color-2: #131A42;
+    --bg-color-3: #0e132f;
+    --border-color-1: #294e82;
+    --border-color-1-40: #294e8266;
+    --border-color-1-50: #294e8280;
+    --border-color-2-5: #ffffff10;
+    --border-color-2-10: #ffffff1a;
+    --border-color-2-20: #ffffff33;
+    --fill-color: #192035;
+    --fill-color-50: #1f293766;
+  }
+
+  .theme-light {
+    --primary-color-1: #fafafa; /* zinc-50 */
+    --primary-color-2: #f4f4f5; /* zinc-100 */
+    --secondary-color-1: #8E92A8;
+    --secondary-color-2: #71717a; /* zinc-500 */
+    --secondary-color-3: #475569; /* slate-600 */
+    --accent-color-1: #EA5376;
+    --accent-color-1-0: #EA537600;
+    --accent-color-1-40: #EA537A66;
+    --accent-color-2: #EA5376;
+    --accent-color-2-0: #EA537A00;
+    --accent-color-2-40: #EA537A66;
+    --bg-color-1: #0e132f;
+    --bg-color-2: #131A42;
+    --bg-color-3: #0e132f;
+    --border-color-1: #294e82;
+    --border-color-1-40: #294e8266;
+    --border-color-1-50: #294e8280;
+    --border-color-2-5: #ffffff10;
+    --border-color-2-10: #ffffff1a;
+    --border-color-2-20: #ffffff33;
+    --fill-color: #192035;
+    --fill-color-50: #1f293766;    
+  }
+}
