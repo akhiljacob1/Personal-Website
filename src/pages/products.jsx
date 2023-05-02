@@ -10,8 +10,7 @@ import LogoNextmove from '@/images/logos/nextmove.png'
 const products = [
   {
     name: 'Nextmove',
-    description:
-      'Open text feedback tool drawing insights with AI.',
+    description: 'Open text feedback tool drawing insights with AI.',
     link: { href: '#', label: 'nextmove.ai' },
     logo: LogoNextmove,
   },
@@ -24,11 +23,10 @@ const products = [
   },
   {
     name: 'Dishy',
-    description:
-      'Food delivery platform for healthy meals.',
+    description: 'Food delivery platform for healthy meals.',
     link: { href: 'https://getdishy.com', label: 'getdishy.com' },
     logo: LogoDishy,
-  }
+  },
 ]
 
 function LinkIcon(props) {
@@ -61,7 +59,11 @@ export default function Products() {
           className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
         >
           {products.map((product) => (
-            <Card as="li" key={product.name} className="flex flex-cols justify-between">
+            <Card
+              as="li"
+              key={product.name}
+              className="flex-cols flex justify-between"
+            >
               <div>
                 <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
                   <Image

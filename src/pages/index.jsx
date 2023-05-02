@@ -9,11 +9,7 @@ import { TypeAnimation } from 'react-type-animation'
 import { FadeInMotion } from '@/components/FadeInMotion'
 import { FadeIn } from '@/components/FadeInMotion'
 import { AnimateSVG } from '@/components/AnimateSVG'
-import {
-  GitHubIcon,
-  LinkedInIcon,
-  TwitterIcon,
-} from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/SocialIcons'
 import LogoDishy from '@/images/logos/dishy.png'
 import LogoZedball from '@/images/logos/zedball.png'
 import LogoNextmove from '@/images/logos/nextmove.png'
@@ -112,20 +108,21 @@ function Resume() {
       company: 'Nextmove',
       title: 'Full-stack Developer',
       description: 'Open text feedback tool drawing insights with AI.',
-      logo: LogoNextmove
+      logo: LogoNextmove,
     },
     {
       company: 'Zedball',
       title: 'Junior Full-stack Developer',
-      description: 'Multiplayer football manager game with Sorare NFT collectible cards.',
-      logo: LogoZedball
+      description:
+        'Multiplayer football manager game with Sorare NFT collectible cards.',
+      logo: LogoZedball,
     },
     {
       company: 'Dishy',
       title: 'Intern Full-stack Developer',
       description: 'Food delivery platform for healthy meals.',
-      logo: LogoDishy
-    }
+      logo: LogoDishy,
+    },
   ]
 
   return (
@@ -141,15 +138,13 @@ function Resume() {
               <Image src={role.logo} alt="" className="w-9" unoptimized />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
-              <div className='flex justify-between w-full'>
+              <div className="flex w-full justify-between">
                 <dt className="sr-only">Company</dt>
                 <dd className="flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
                   {role.company}
                 </dd>
                 <dt className="sr-only">Position</dt>
-                <dd
-                  className="text-xs text-zinc-400 dark:text-zinc-600"
-                >
+                <dd className="text-xs text-zinc-400 dark:text-zinc-600">
                   {role.title}
                 </dd>
               </div>
@@ -192,9 +187,14 @@ function Socials() {
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <ul role="list">
         {socials.map((social) => (
-          <SocialLink href={social.link} icon={social.icon} key={social.name} className="mt-4">
+          <SocialLink
+            href={social.link}
+            icon={social.icon}
+            key={social.name}
+            className="mt-4"
+          >
             Follow on {social.name}
-          </SocialLink>  
+          </SocialLink>
         ))}
         <SocialLink
           href="mailto:akhiljacob98@gmail.com"
@@ -222,8 +222,10 @@ export default function Home() {
       </Head>
       <Container className="mt-9">
         <FadeInMotion once_boolean={false} className="max-w-3xl pb-24 md:pb-28">
-          <h1 className="text-2xl h-32 sm:h-60 md:h-48 xl:h-32 overflow-auto font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            <span className='mr-1 sm:mr-3'>Ruby on Rails developer passionate about</span>
+          <h1 className="h-32 overflow-auto text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:h-60 sm:text-5xl md:h-48 xl:h-32">
+            <span className="mr-1 sm:mr-3">
+              Ruby on Rails developer passionate about
+            </span>
             <TypeAnimation
               sequence={[
                 'learning and applying.', 2000,
@@ -233,44 +235,48 @@ export default function Home() {
                 'playing music.', 2000,
               ]}
               deletionSpeed={80}
-              className='text-primary-C-lighter'
+              className="text-primary-C-lighter"
               repeat={Infinity}
             />
           </h1>
           <p className="mt-2 text-base text-zinc-600 dark:text-zinc-400">
-            Hey! I'm Akhil, a full-stack developer that loves creating
-            web applications. I've worked on various projects,
-            including a web3 game and a SaaS app. I am
-            passionate about learning and view every challenge and opportunity
-            as a way to continue my growth.
+            Hey! I'm Akhil, a full-stack developer that loves creating web
+            applications. I've worked on various projects, including a web3 game
+            and a SaaS app. I am passionate about learning and view every
+            challenge and opportunity as a way to continue my growth.
           </p>
         </FadeInMotion>
         <div className="pt-24 md:pt-28">
-          <FadeInMotion variants={FadeIn} className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+          <FadeInMotion
+            variants={FadeIn}
+            className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2"
+          >
             <div className="lg:order-first lg:row-span-2">
               <div className="space-y-7 text-base text-zinc-600 dark:text-zinc-400">
                 <p>
-                  I'm a developer with a passion for creating cool
-                  things. I've been tinkering with code for about four years now, but
-                  it's only been two years since I started my professional journey.
+                  I'm a developer with a passion for creating cool things. I've
+                  been tinkering with code for about four years now, but it's
+                  only been two years since I started my professional journey.
                 </p>
                 <p>
-                  Before I became a full-fledged developer, I used to dabble in small
-                  personal projects in Python. But then I completed a six-month
-                  internship in full-stack development with Ruby on Rails and stumbled
-                  upon a new interest. Since then I've worked with clients to
-                  develop web apps.
+                  Before I became a full-fledged developer, I used to dabble in
+                  small personal projects in Python. But then I completed a
+                  six-month internship in full-stack development with Ruby on
+                  Rails and stumbled upon a new interest. Since then I've worked
+                  with clients to develop web apps.
                 </p>
                 <p>
-                  I'm always excited to learn about new tech and adapt to changing times.
-                  In the past two years, I've been exploring the web3 space and AI,
-                  which led me to work on exciting projects like
-                  <TextLink href='#'> Zedball </TextLink> and
-                  <TextLink href='#'> Nextmove</TextLink>.
+                  I'm always excited to learn about new tech and adapt to
+                  changing times. In the past two years, I've been exploring the
+                  web3 space and AI, which led me to work on exciting projects
+                  like
+                  <TextLink href="#"> Zedball </TextLink> and
+                  <TextLink href="#"> Nextmove</TextLink>.
                 </p>
                 <p>
                   I'm always open to new ideas and opportunities. If you have a
-                  project you want to chat about or just want to say hi, reach out to me! :)
+                  project you want to chat about or just want to say hi, reach
+                  out to me! :)
                 </p>
               </div>
             </div>
