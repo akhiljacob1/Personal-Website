@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef } from 'react'
+import { Fragment, useEffect, useRef, useState, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -175,6 +175,8 @@ function DesktopNavigation(props) {
 }
 
 function ModeToggle() {
+  const [theme, setTheme] = useState()
+  
   function disableTransitionsTemporarily() {
     document.documentElement.classList.add('[&_*]:!transition-none')
     window.setTimeout(() => {
@@ -182,30 +184,61 @@ function ModeToggle() {
     }, 0)
   }
 
-  function toggleMode() {
-    disableTransitionsTemporarily()
-
-    let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    let isSystemDarkMode = darkModeMediaQuery.matches
-    let isDarkMode = document.documentElement.classList.toggle('dark')
-
-    if (isDarkMode === isSystemDarkMode) {
-      delete window.localStorage.isDarkMode
-    } else {
-      window.localStorage.isDarkMode = isDarkMode
+  const updateClass = useCallback((theme) => {
+    if (typeof theme === 'undefined') { return } // exit early if theme is undefined
+    const themes = {
+      'light-theme': 'light-theme',
+      'dark-theme': 'dark-theme',
+      'amoled-theme': 'amoled-theme'
     }
-  }
+    const classesToRemove = Object.values(themes).filter(cls => cls !== '')
+    document.documentElement.classList.remove(...classesToRemove)
+    if (themes[theme].length > 0) {document.documentElement.classList.add(themes[theme])}
+  }, [])
+
+  const selectMode = useCallback(() => {
+    disableTransitionsTemporarily()
+    updateClass(theme)
+  
+    if (theme === 'light') {
+      delete window.localStorage.theme
+    } else {
+      if (typeof theme === 'undefined') { return } // exit early if theme is undefined
+      window.localStorage.theme = theme
+    }
+  }, [theme, updateClass])
+
+  useEffect(() => {
+    selectMode()
+  }, [selectMode])
 
   return (
-    <button
-      type="button"
-      aria-label="Toggle dark mode"
-      className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-skin-fill dark:ring-skin-border-2/10 dark:hover:ring-skin-border-2/20"
-      onClick={toggleMode}
-    >
-      <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-skin-border-1 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-skin-accent-2 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600" />
-      <MoonIcon className="[@media_not_(prefers-color-scheme:dark)]:fill-primary-text-skin-accent-1/10 hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:stroke-skin-accent-2" />
-    </button>
+    <>
+      <button
+        type="button"
+        aria-label="Toggle dark mode"
+        className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-skin-fill dark:ring-skin-border-2/10 dark:hover:ring-skin-border-2/20"
+        onClick={() => setTheme('light-theme')}
+      >
+        <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-skin-border-1 [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-skin-accent-2 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600" />
+      </button>
+      <button
+        type="button"
+        aria-label="Toggle dark mode"
+        className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-skin-fill dark:ring-skin-border-2/10 dark:hover:ring-skin-border-2/20"
+        onClick={() => setTheme('dark-theme')}
+      >
+        <MoonIcon className="[@media_not_(prefers-color-scheme:dark)]:fill-primary-text-skin-accent-1/10 h-6 w-6 fill-zinc-700 stroke-zinc-500 transition [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:stroke-skin-accent-2" />
+      </button>
+      <button
+        type="button"
+        aria-label="Toggle dark mode"
+        className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-skin-fill dark:ring-skin-border-2/10 dark:hover:ring-skin-border-2/20"
+        onClick={() => setTheme('amoled-theme')}
+      >
+        <MoonIcon className="[@media_not_(prefers-color-scheme:dark)]:fill-primary-text-skin-accent-1/10 h-6 w-6 fill-zinc-700 stroke-zinc-500 transition [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:stroke-skin-accent-2" />
+      </button>
+    </>
   )
 }
 
