@@ -29,6 +29,7 @@ module.exports = {
           'border-2/20': 'var(--border-color-2-20)',
           'fill': 'var(--fill-color)',
           'fill/50': 'var(--fill-color-50)',
+          'backdrop': 'var(--backdrop-color)',
         },
       },
     },

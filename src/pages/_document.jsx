@@ -30,7 +30,7 @@ export default function Document() {
         />
       </Head>
       {/* set bg-color here to choose the color that appears on the edge when we scroll and reach that edge. */}
-      <body className="flex h-full flex-col bg-no-repeat bg-amber-200 bg-gradient-to-b from-amber-200 via-amber-100 to-amber-200 to-50% dark:bg-skin-bg-1 dark:from-skin-bg-1 dark:via-skin-bg-2 dark:to-skin-bg-3 dark:to-50%">
+      <body className="flex h-full flex-col bg-no-repeat bg-gradient-to-b bg-skin-bg-1 from-skin-bg-1 via-skin-bg-2 to-skin-bg-3 to-50%">
         <Main />
         <NextScript />
       </body>
