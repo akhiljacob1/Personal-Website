@@ -29,10 +29,10 @@ export function Footer() {
   return (
     <footer className="mt-32">
       <Container.Outer>
-        <div className="border-t pb-16 pt-10 border-skin-border-1/40">
+        <div className="border-t pb-16 pt-10 border-thematic-footer-divide">
           <Container.Inner>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-              <div className="flex gap-2 text-sm font-medium text-skin-primary-2">
+              <div className="flex gap-2 text-sm font-medium">
                 {socials.map((social) => (
                   <SocialLink
                     href={social.link}
@@ -42,7 +42,7 @@ export function Footer() {
                   />
                 ))}
               </div>
-              <p className="text-sm font-medium text-skin-secondary-2">
+              <p className="text-sm font-medium text-thematic-footer-copyright">
                 &copy; {new Date().getFullYear()} • Akhil Jacob
               </p>
             </div>

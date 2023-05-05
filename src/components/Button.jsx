@@ -3,7 +3,7 @@ import clsx from 'clsx'
 
 const variantStyles = {
   primary:
-    'font-medium bg-skin-fill/50 text-skin-secondary-1 hover:bg-skin-fill hover:text-skin-primary-2 active:bg-skin-fill/50 active:text-primary-2',
+    'font-medium bg-thematic-btn-bg text-thematic-btn-text hover:bg-thematic-btn-bg-hover hover:text-thematic-btn-text-hover active:bg-thematic-btn-bg',
   secondary:
     '',
 }

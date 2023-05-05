@@ -88,9 +88,9 @@ function MobileNavItem({ href, children }) {
 function MobileNavigation(props) {
   return (
     <Popover {...props}>
-      <Popover.Button className="group flex items-center rounded-full px-4 py-2 text-sm font-medium shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur bg-skin-fill text-skin-primary-2 ring-skin-border-2/10 hover:ring-skin-border-2/20">
+      <Popover.Button className="group flex items-center rounded-full px-4 py-2 text-sm font-medium shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur bg-thematic-mobile-nav-btn-bg text-thematic-mobile-nav-btn-text ring-thematic-mobile-nav-btn-border hover:ring-thematic-mobile-nav-btn-border-hover">
         Menu
-        <ChevronDownIcon className="ml-3 h-auto w-2 stroke-skin-secondary-2 group-hover:stroke-skin-secondary-1" />
+        <ChevronDownIcon className="ml-3 h-auto w-2 stroke-thematic-mobile-nav-btn-text group-hover:stroke-thematic-mobile-nav-btn-text-hover" />
       </Popover.Button>
       <Transition.Root>
         <Transition.Child
@@ -102,7 +102,7 @@ function MobileNavigation(props) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Popover.Overlay className="fixed inset-0 z-50 bg-skin-backdrop backdrop-blur-sm" />
+          <Popover.Overlay className="fixed inset-0 z-50 bg-thematic-backdrop backdrop-blur-sm" />
         </Transition.Child>
         <Transition.Child
           as={Fragment}
@@ -115,18 +115,18 @@ function MobileNavigation(props) {
         >
           <Popover.Panel
             focus
-            className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl p-8 ring-1 bg-skin-fill ring-skin-fill/50"
+            className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl p-8 ring-1 bg-thematic-mobile-dropdown-fill ring-thematic-mobile-dropdown-border"
           >
             <div className="flex flex-row-reverse items-center justify-between">
               <Popover.Button aria-label="Close menu" className="-m-1 p-1">
-                <CloseIcon className="h-6 w-6 text-skin-secondary-1" />
+                <CloseIcon className="h-6 w-6 text-thematic-mobile-dropdown-heading" />
               </Popover.Button>
-              <h2 className="text-sm font-medium text-skin-secondary-1">
+              <h2 className="text-sm font-medium text-thematic-mobile-dropdown-heading">
                 Navigation
               </h2>
             </div>
             <nav className="mt-6">
-              <ul className="-my-2 divide-y text-base divide-skin-border-2/5 text-skin-primary-2">
+              <ul className="-my-2 divide-y text-base divide-thematic-mobile-dropdown-divide text-thematic-mobile-dropdown-subheading">
                 <MobileNavItem href="/">Home</MobileNavItem>
                 <MobileNavItem href="/articles">Articles</MobileNavItem>
                 <MobileNavItem href="/products">Products</MobileNavItem>
@@ -149,13 +149,13 @@ function NavItem({ href, children }) {
         className={clsx(
           'relative block px-3 py-2 transition',
           isActive
-            ? 'text-skin-accent-1'
-            : 'hover:text-skin-accent-2'
+            ? 'text-thematic-nav-page-active'
+            : 'hover:text-thematic-nav-page-hover'
         )}
       >
         {children}
         {isActive && (
-          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-skin-accent-1/0 via-skin-accent-1/40 to-skin-accent-1/0" />
+          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-thematic-nav-underline-weak via-thematic-nav-underline-strong to-thematic-nav-underline-weak" />
         )}
       </Link>
     </li>
@@ -165,7 +165,7 @@ function NavItem({ href, children }) {
 function DesktopNavigation(props) {
   return (
     <nav {...props}>
-      <ul className="flex rounded-full px-3 text-sm font-medium text-skin-primary-2">
+      <ul className="flex rounded-full px-3 text-sm font-medium text-thematic-nav-page-unactive">
         <NavItem href="/">Home</NavItem>
         <NavItem href="/articles">Articles</NavItem>
         <NavItem href="/products">Products</NavItem>
@@ -217,26 +217,26 @@ function ModeToggle() {
       <button
         type="button"
         aria-label="Toggle dark mode"
-        className="group rounded-full px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur transition bg-skin-fill ring-skin-border-2/10 hover:ring-skin-border-2/20"
+        className="group rounded-full px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur transition"
         onClick={() => setTheme('light-theme')}
       >
-        <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-skin-border-1 [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-skin-accent-2 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600" />
+        <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600" />
       </button>
       <button
         type="button"
         aria-label="Toggle dark mode"
-        className="group rounded-full px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur transition bg-skin-fill ring-skin-border-2/10 hover:ring-skin-border-2/20"
+        className="group rounded-full px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur transition"
         onClick={() => setTheme('dark-theme')}
       >
-        <MoonIcon className="[@media_not_(prefers-color-scheme:dark)]:fill-primary-text-skin-accent-1/10 h-6 w-6 fill-zinc-700 stroke-zinc-500 transition [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:stroke-skin-accent-2" />
+        <MoonIcon className="h-6 w-6 fill-zinc-700 stroke-zinc-500 transition [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400" />
       </button>
       <button
         type="button"
         aria-label="Toggle dark mode"
-        className="group rounded-full px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur transition bg-skin-fill ring-skin-border-2/10 hover:ring-skin-border-2/20"
+        className="group rounded-full px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur transition"
         onClick={() => setTheme('amoled-theme')}
       >
-        <MoonIcon className="[@media_not_(prefers-color-scheme:dark)]:fill-primary-text-skin-accent-1/10 h-6 w-6 fill-zinc-700 stroke-zinc-500 transition [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:stroke-skin-accent-2" />
+        <MoonIcon className="h-6 w-6 fill-zinc-700 stroke-zinc-500 transition [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400" />
       </button>
     </>
   )
@@ -253,7 +253,7 @@ function AvatarContainer({ className, ...props }) {
     <div
       className={clsx(
         className,
-        'h-10 w-10 rounded-full p-0.5 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur bg-skin-fill ring-skin-border-1/50'
+        'h-10 w-10 rounded-full p-0.5 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur bg-thematic-avatar-container-bg ring-thematic-avatar-container-border'
       )}
       {...props}
     />
@@ -273,7 +273,7 @@ function Avatar({ large = false, className, ...props }) {
         alt=""
         sizes={large ? '4rem' : '2.25rem'}
         className={clsx(
-          'rounded-full object-cover bg-skin-fill',
+          'rounded-full object-cover bg-thematic-avatar-container-bg',
           large ? 'h-16 w-16' : 'h-9 w-9'
         )}
         priority

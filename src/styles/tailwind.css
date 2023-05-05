@@ -56,28 +56,86 @@
   }
 
   .dark-theme {
-    --primary-color-1: #fafafa; /* zinc-50 */
-    --primary-color-2: #f4f4f5; /* zinc-100 */
-    --secondary-color-1: #8E92A8;
-    --secondary-color-2: #71717a; /* zinc-500 */
-    --secondary-color-3: #475569; /* slate-600 */
-    --accent-color-1: #EA5376;
-    --accent-color-1-0: #EA537600;
-    --accent-color-1-40: #EA537A66;
-    --accent-color-2: #ad3e58;
-    --accent-color-2-0: #EA537A00;
-    --accent-color-2-40: #EA537A66;
     --bg-color-1: #0e132f;
     --bg-color-2: #131A42;
     --bg-color-3: #0e132f;
-    --border-color-1: #294e82;
-    --border-color-1-40: #294e8266;
-    --border-color-1-50: #294e8280;
-    --border-color-2-5: #ffffff10;
-    --border-color-2-10: #ffffff1a;
-    --border-color-2-20: #ffffff33;
-    --fill-color: #192035;
-    --fill-color-50: #1f293766;    
-    --backdrop-color: #00000066; /* completed */ 
+    --heading-color: #fafafa;
+    --subheading-color: #8E92A8;
+    --body-color: #8E92A8;
+    --link-color: #d4d4d8;
+    --link-hover-color: #EA5376;
+    --accented-text: #EA5376;
+    /* Index */
+    --card-border-color: #294e8266;
+    --resume-heading-color: #fafafa;
+    --company-icon-border-color: #294e8266;
+    --company-icon-bg-color: #192035;
+    --company-name-color: #fafafa;
+    --company-description-color: #8E92A8;
+    --company-role-color: #475569;
+    --btn-bg-color: #1f293766;
+    --btn-bg-hover-color: #192035;
+    --btn-text-color: #8E92A8;
+    --btn-text-hover-color: #f4f4f5;
+    --socials-icon-fill-color: #71717a;
+    --socials-icon-fill-hover-color: #EA5376;
+    --socials-icon-border-color: #71717a;
+    --socials-link-color: #8E92A8;
+    --socials-link-hover-color: #EA5376;
+    --icon-fill-color: #ffffff1a;
+    --icon-border-color: #71717a;
+    /* Header */
+    --mobile-nav-btn-bg-color: #192035;
+    --mobile-nav-btn-text-color: #71717a;
+    --mobile-nav-btn-text-hover-color: #8E92A8;
+    --mobile-nav-btn-border-color: #ffffff1a;
+    --mobile-nav-btn-border-hover-color: #ffffff33;
+    --backdrop-color: #00000066;
+    --mobile-dropdown-fill-color: #192035;
+    --mobile-dropdown-border-color: #1f293766;
+    --mobile-dropdown-divide-color: #ffffff10;
+    --mobile-dropdown-heading-color: #8E92A8;
+    --mobile-dropdown-subheading-color: #f4f4f5;
+    --backdrop-color: #00000066;
+    --nav-page-active-color: #EA5376;
+    --nav-page-unactive-color: #f4f4f5;
+    --nav-page-hover-color: #ad3e58;
+    --nav-underline-weak-color: #EA537600;
+    --nav-underline-strong-color: #EA537A66;
+    --avatar-container-bg-color: #192035;
+    --avatar-container-border-color: #294e8280;
+    /* Footer */
+    --footer-divide-color: #294e8266;
+    --footer-copyright-color: #71717a;
+    /* Products */
+    --product-name-color: #fafafa;
+    --product-description-color: #8E92A8;
+    /* Article layout */
+    --article-date-border-color: #294e8266;
+    /* Article */
+    --back-border-color: #ffffff1a;
+    --back-btn-border-hover-color: #ffffff33;
+    --back-btn-bg-color: #192035;
+    --back-btn-arrow-color: #71717a;
+    --back-btn-arrow-hover-color: #8E92A8;
+    --article-date-color: #71717a;
+    --article-date-border-color: #71717a;
+    /* Prose */
+    --prose-body: #8E92A8;
+    --prose-headings: #fafafa;
+    --prose-links: #d4d4d8;
+    --prose-links-hover: #EA5376;
+    --prose-underline: #d4d4d8;
+    --prose-underline-hover: #EA5376;
+    --prose-bold: #d4d4d8;
+    --prose-counters: #d4d4d8;
+    --prose-bullets: #d4d4d8;
+    --prose-pre-bg: #030820;
+    /* Card */
+    --card-bg-color: #1f293766;
+    --card-title-color: #fafafa;
+    --card-link-color: #EA5376;
+    --card-date-color: #71717a;
+    --card-date-border-color: #71717a;
   }
 }

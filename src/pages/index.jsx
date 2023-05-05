@@ -29,11 +29,11 @@ export function MailIcon(props) {
     >
       <path
         d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-skin-border-2/10 stroke-skin-secondary-2"
+        className="fill-thematic-icon-fill stroke-thematic-socials-icon-border"
       />
       <path
         d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6"
-        className="stroke-skin-secondary-2"
+        className="stroke-thematic-socials-icon-border"
       />
     </svg>
   )
@@ -53,11 +53,11 @@ function BriefcaseIcon(props) {
       >
         <path
           d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-          className="fill-skin-border-2/10 stroke-skin-secondary-2"
+          className="fill-thematic-icon-fill stroke-thematic-icon-border"
         />
         <path
           d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
-          className="stroke-skin-secondary-2"
+          className="stroke-thematic-icon-border"
         />
       </svg>
     </AnimateSVG>
@@ -81,7 +81,7 @@ function TextLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="text-sm underline font-medium transition hover:text-skin-accent-2 text-skin-primary-2"
+      className="text-sm underline font-medium transition hover:text-thematic-link-hover text-thematic-link"
     >
       <span>{children}</span>
     </Link>
@@ -93,9 +93,9 @@ export function SocialLink({ className, href, children, icon: Icon }) {
     <li className={clsx(className, 'flex')}>
       <Link
         href={href}
-        className="group flex text-sm font-medium transition hover:text-skin-accent-2 text-skin-secondary-1"
+        className="group flex text-sm font-medium transition hover:text-thematic-socials-link-hover text-thematic-socials-link"
       >
-        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-skin-accent-2" />
+        <Icon className="h-6 w-6 flex-none fill-thematic-socials-icon-fill transition group-hover:fill-thematic-socials-icon-fill-hover" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
@@ -126,30 +126,30 @@ function Resume() {
   ]
 
   return (
-    <div className="rounded-2xl border p-6 border-skin-border-1/40">
-      <h2 className="flex text-sm font-semibold text-skin-primary-1">
+    <div className="rounded-2xl border p-6 border-thematic-card-border">
+      <h2 className="flex text-sm font-semibold text-thematic-resume-heading">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Products</span>
       </h2>
       <ol className="mt-6 space-y-6">
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
-            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 border border-skin-border-1/40 bg-skin-fill">
+            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 border border-thematic-company-icon-border bg-thematic-company-icon-bg">
               <Image src={role.logo} alt="" className="w-9" unoptimized />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <div className="flex w-full justify-between">
                 <dt className="sr-only">Company</dt>
-                <dd className="flex-none text-sm font-medium text-skin-primary-1">
+                <dd className="flex-none text-sm font-medium text-thematic-company-name">
                   {role.company}
                 </dd>
                 <dt className="sr-only">Position</dt>
-                <dd className="text-xs text-skin-secondary-3">
+                <dd className="text-xs text-thematic-company-role">
                   {role.title}
                 </dd>
               </div>
               <dt className="sr-only">Company Description</dt>
-              <dd className="text-xs text-skin-secondary-1">
+              <dd className="text-xs text-thematic-company-description">
                 {role.description}
               </dd>
             </dl>
@@ -158,7 +158,7 @@ function Resume() {
       </ol>
       <Button href="#" className="group mt-6 w-full">
         Download CV
-        <ArrowDownIcon className="h-4 w-4 stroke-skin-secondary-1 transition group-hover:stroke-skin-primary-1 group-active:stroke-skin-primary-1" />
+        <ArrowDownIcon className="h-4 w-4 stroke-thematic-btn-text transition group-hover:stroke-thematic-btn-text-hover group-active:stroke-thematic-btn-text-hover" />
       </Button>
     </div>
   )
@@ -184,7 +184,7 @@ function Socials() {
   ]
 
   return (
-    <div className="rounded-2xl border p-6 border-skin-border-1/40">
+    <div className="rounded-2xl border p-6 border-thematic-card-border">
       <ul role="list">
         {socials.map((social) => (
           <SocialLink
@@ -199,7 +199,7 @@ function Socials() {
         <SocialLink
           href="mailto:akhiljacob98@gmail.com"
           icon={MailIcon}
-          className="mt-8 border-t pt-6 border-skin-border-1/40"
+          className="mt-8 border-t pt-6 border-thematic-card-border"
         >
           akhiljacob98@gmail.com
         </SocialLink>
@@ -222,7 +222,7 @@ export default function Home() {
       </Head>
       <Container className="mt-9">
         <FadeInMotion once_boolean={false} className="max-w-3xl pb-24 md:pb-28">
-          <h1 className="h-32 overflow-auto text-2xl font-bold tracking-tight text-skin-primary-1 sm:h-60 sm:text-5xl md:h-48 xl:h-32">
+          <h1 className="h-32 overflow-auto text-2xl font-bold tracking-tight text-thematic-heading sm:h-60 sm:text-5xl md:h-48 xl:h-32">
             <span className="mr-1 sm:mr-3">
               Ruby on Rails developer passionate about
             </span>
@@ -240,11 +240,11 @@ export default function Home() {
                 2000,
               ]}
               deletionSpeed={80}
-              className="text-skin-accent-1"
+              className="text-thematic-accented-text"
               repeat={Infinity}
             />
           </h1>
-          <p className="mt-2 text-base text-skin-secondary-1">
+          <p className="mt-2 text-base text-thematic-subheading">
             Hey! I'm Akhil, a full-stack developer that loves creating web
             applications. I've worked on various projects, including a web3 game
             and a SaaS app. I am passionate about learning and view every
@@ -257,7 +257,7 @@ export default function Home() {
             className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2"
           >
             <div className="lg:order-first lg:row-span-2">
-              <div className="space-y-7 text-base text-skin-secondary-1">
+              <div className="space-y-7 text-base text-thematic-body">
                 <p>
                   I'm a developer with a passion for creating cool things. I've
                   been tinkering with code for about four years now, but it's

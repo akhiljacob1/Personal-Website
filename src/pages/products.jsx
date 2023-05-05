@@ -65,7 +65,7 @@ export default function Products() {
               className="flex-cols flex justify-between"
             >
               <div>
-                <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full shadow-md shadow-zinc-800/5 border border-skin-border-1/40 bg-skin-fill">
+                <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full shadow-md shadow-zinc-800/5 border border-thematic-company-icon-border bg-thematic-company-icon-bg">
                   <Image
                     src={product.logo}
                     alt=""
@@ -73,12 +73,12 @@ export default function Products() {
                     unoptimized
                   />
                 </div>
-                <h2 className="mt-6 text-base font-semibold text-skin-primary-1">
+                <h2 className="mt-6 text-base font-semibold text-thematic-product-name">
                   <Card.Link href={product.link.href}>{product.name}</Card.Link>
                 </h2>
                 <Card.Description>{product.description}</Card.Description>
               </div>
-              <p className="relative z-10 mt-6 flex text-sm font-medium transition group-hover:text-skin-accent-2 text-skin-primary-2">
+              <p className="relative z-10 mt-6 flex text-sm font-medium transition group-hover:text-thematic-link-hover text-thematic-link">
                 <LinkIcon className="h-6 w-6 flex-none" />
                 <span className="ml-2">{product.link.label}</span>
               </p>
