@@ -240,7 +240,7 @@ export default function Home() {
                 2000,
               ]}
               deletionSpeed={80}
-              className="text-thematic-accented-text"
+              className="text-transparent bg-clip-text bg-gradient-to-br from-thematic-accented-text-1 to-thematic-accented-text-2"
               repeat={Infinity}
             />
           </h1>

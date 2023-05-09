@@ -15,7 +15,8 @@ module.exports = {
           'body': 'var(--body-color)',
           'link': 'var(--link-color)',
           'link-hover': 'var(--link-hover-color)',
-          'accented-text': 'var(--accented-text)',
+          'accented-text-1': 'var(--accented-text-1)',
+          'accented-text-2': 'var(--accented-text-2)',
           // Index
           'card-border': 'var(--card-border-color)',
           'resume-heading': 'var(--resume-heading-color)',

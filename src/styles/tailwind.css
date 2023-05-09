@@ -5,54 +5,192 @@
 
 @layer base {
   :root {
-    --primary-color-1: #fafafa; /* zinc-50 */
-    --primary-color-2: #f4f4f5; /* zinc-100 */
-    --secondary-color-1: #8E92A8;
-    --secondary-color-2: #71717a; /* zinc-500 */
-    --secondary-color-3: #475569; /* slate-600 */
-    --accent-color-1: #EA5376;
-    --accent-color-1-0: #EA537600;
-    --accent-color-1-40: #EA537A66;
-    --accent-color-2: #EA5376;
-    --accent-color-2-0: #EA537A00;
-    --accent-color-2-40: #EA537A66;
     --bg-color-1: #0e132f;
     --bg-color-2: #131A42;
     --bg-color-3: #0e132f;
-    --border-color-1: #294e82;
-    --border-color-1-40: #294e8266;
-    --border-color-1-50: #294e8280;
-    --border-color-2-5: #ffffff10;
-    --border-color-2-10: #ffffff1a;
-    --border-color-2-20: #ffffff33;
-    --fill-color: #192035;
-    --fill-color-50: #1f293766;
+    --heading-color: #fafafa;
+    --subheading-color: #8E92A8;
+    --body-color: #8E92A8;
+    --link-color: #d4d4d8;
+    --link-hover-color: #EA5376;
+    --accented-text: #EA5376;
+    /* Index */
+    --card-border-color: #294e8266;
+    --resume-heading-color: #fafafa;
+    --company-icon-border-color: #294e8266;
+    --company-icon-bg-color: #192035;
+    --company-name-color: #fafafa;
+    --company-description-color: #8E92A8;
+    --company-role-color: #475569;
+    --btn-bg-color: #1f293766;
+    --btn-bg-hover-color: #192035;
+    --btn-text-color: #8E92A8;
+    --btn-text-hover-color: #f4f4f5;
+    --socials-icon-fill-color: #71717a;
+    --socials-icon-fill-hover-color: #EA5376;
+    --socials-icon-border-color: #71717a;
+    --socials-link-color: #8E92A8;
+    --socials-link-hover-color: #EA5376;
+    --icon-fill-color: #ffffff1a;
+    --icon-border-color: #71717a;
+    /* Header */
+    --mobile-nav-btn-bg-color: #192035;
+    --mobile-nav-btn-text-color: #71717a;
+    --mobile-nav-btn-text-hover-color: #8E92A8;
+    --mobile-nav-btn-border-color: #ffffff1a;
+    --mobile-nav-btn-border-hover-color: #ffffff33;
+    --backdrop-color: #00000066;
+    --mobile-dropdown-fill-color: #192035;
+    --mobile-dropdown-border-color: #1f293766;
+    --mobile-dropdown-divide-color: #ffffff10;
+    --mobile-dropdown-heading-color: #8E92A8;
+    --mobile-dropdown-subheading-color: #f4f4f5;
+    --backdrop-color: #00000066;
+    --nav-page-active-color: #EA5376;
+    --nav-page-unactive-color: #f4f4f5;
+    --nav-page-hover-color: #ad3e58;
+    --nav-underline-weak-color: #EA537600;
+    --nav-underline-strong-color: #EA537A66;
+    --avatar-container-bg-color: #192035;
+    --avatar-container-border-color: #294e8280;
+    /* Footer */
+    --footer-divide-color: #294e8266;
+    --footer-copyright-color: #71717a;
+    /* Products */
+    --product-name-color: #fafafa;
+    --product-description-color: #8E92A8;
+    /* Article index */
+    --date-border-color: #294e8266;
+    /* Article */
+    --back-border-color: #ffffff1a;
+    --back-btn-border-hover-color: #ffffff33;
+    --back-btn-bg-color: #192035;
+    --back-btn-arrow-color: #71717a;
+    --back-btn-arrow-hover-color: #8E92A8;
+    --article-date-color: #71717a;
+    --article-date-border-color: #71717a;
+    /* Prose */
+    --prose-body: #8E92A8;
+    --prose-headings: #fafafa;
+    --prose-links: #d4d4d8;
+    --prose-links-hover: #EA5376;
+    --prose-underline: #d4d4d8;
+    --prose-underline-hover: #EA5376;
+    --prose-bold: #d4d4d8;
+    --prose-counters: #d4d4d8;
+    --prose-bullets: #d4d4d8;
+    --prose-pre-bg: #030820;
+    /* Card */
+    --card-bg-color: #1f293766;
+    --card-title-color: #fafafa;
+    --card-link-color: #EA5376;
+    --card-date-color: #71717a;
+    --card-date-border-color: #71717a;
   }
 
   .light-theme {
-    --primary-color-1: #18181b; /* completed */
-    --primary-color-2: #27272a; /* completed */
-    --secondary-color-1: #27272a; /* completed */
-    --secondary-color-2: #a1a1aa; /* completed */
-    --secondary-color-3: #a1a1aa; /* completed */ 
-    --accent-color-1: #EA5376; /* completed */
-    --accent-color-1-0: #EA537600; /* completed */
-    --accent-color-1-40: #EA537A66; /* completed */
-    --accent-color-2: #e74067; /* completed */
-    --accent-color-2-0: #EA537A00; /* completed */
-    --accent-color-2-40: #EA537A66; /* completed */
-    --bg-color-1: #fde68a; /* completed */
-    --bg-color-2: #fef3c7; /* completed */
-    --bg-color-3: #fde68a; /* completed */
-    --border-color-1: #f4f4f5; /* completed */
-    --border-color-1-40: #f4f4f566; /* completed */
-    --border-color-1-50: #f4f4f580; /* completed */
-    --border-color-2-5: #00000010; /* completed */
-    --border-color-2-10: #f4f4f51a; /* completed */
-    --border-color-2-20: #f4f4f533; /* completed */
-    --fill-color: #f4f4f5; /* completed */
-    --fill-color-50: #f4f4f580; /* completed */
-    --backdrop-color: #27272a66; /* completed */
+    --primary-color-1: #18181b;
+    --primary-color-2: #27272a;
+    --secondary-color-1: #27272a;
+    --secondary-color-2: #a1a1aa;
+    --secondary-color-3: #a1a1aa; 
+    --accent-color-1: #EA5376;
+    --accent-color-1-0: #EA537600;
+    --accent-color-1-40: #EA537A66;
+    --accent-color-2: #e74067;
+    --accent-color-2-0: #EA537A00;
+    --accent-color-2-40: #EA537A66;
+    --border-color-1: #f4f4f5;
+    --border-color-1-40: #f4f4f566;
+    --border-color-1-50: #f4f4f580;
+    --border-color-2-5: #00000010;
+    --border-color-2-10: #f4f4f51a;
+    --border-color-2-20: #f4f4f533;
+    --fill-color: #f4f4f5;
+    --fill-color-50: #f4f4f580;
+    --backdrop-color: #27272a66;
+    
+    --bg-color-1: #fff3c1;
+    --bg-color-2: #fffbeb;
+    --bg-color-3: #fff3c1;
+    --heading-color: #1c1917;
+    --subheading-color: #44403c;
+    --body-color: #44403c;
+    --link-color: #1c1917;
+    --link-hover-color: #DB2763;
+    --accented-text-1: #DB2763;
+    --accented-text-2: #d5489f;
+    /* Index */
+    --card-border-color: #fcd34d;
+    --resume-heading-color: #1c1917;
+    --company-icon-border-color: #fcd34d55;
+    --company-icon-bg-color: #fff8da;
+    --company-name-color: #1c1917;
+    --company-description-color: #44403c;
+    --company-role-color: #57534e;
+    --btn-bg-color: #e7b03944;
+    --btn-bg-hover-color: #e7b03966;
+    --btn-text-color: #44403c;
+    --btn-text-hover-color: #44403c;
+    --socials-icon-fill-color: #44403c;
+    --socials-icon-fill-hover-color: #DB2763;
+    --socials-icon-border-color: #44403c;
+    --socials-link-color: #44403c;
+    --socials-link-hover-color: #DB2763;
+    --icon-fill-color: #ffffff1a;
+    --icon-border-color: #44403c;
+    /* Header */
+    --mobile-nav-btn-bg-color: #fff8da;
+    --mobile-nav-btn-text-color: #44403c;
+    --mobile-nav-btn-text-hover-color: #57534e;
+    --mobile-nav-btn-border-color: #ffffff1a;
+    --mobile-nav-btn-border-hover-color: #ffffff33;
+    --backdrop-color: #57534e66;
+    --mobile-dropdown-fill-color: #fff8da;
+    --mobile-dropdown-border-color: #ca8a0466;
+    --mobile-dropdown-divide-color: #ca8a0420;
+    --mobile-dropdown-heading-color: #44403c;
+    --mobile-dropdown-subheading-color: #44403c;
+    --nav-page-active-color: #DB2763;
+    --nav-page-unactive-color: #44403c;
+    --nav-page-hover-color: #ad3e58;
+    --nav-underline-weak-color: #DB276300;
+    --nav-underline-strong-color: #DB276366;
+    --avatar-container-bg-color: #fff8da;
+    --avatar-container-border-color: #fcd34d;
+    /* Footer */
+    --footer-divide-color: #fcd34d;
+    --footer-copyright-color: #44403c;
+    /* Products */
+    --product-name-color: #1c1917;
+    --product-description-color: #44403c;
+    /* Article index */
+    --date-border-color: #fcd34d;
+    /* Article */
+    --back-border-color: #ffffff1a;
+    --back-btn-border-hover-color: #fcd34d;
+    --back-btn-bg-color: #fff;
+    --back-btn-arrow-color: #44403c;
+    --back-btn-arrow-hover-color: #44403c;
+    --article-date-color: #44403c;
+    --article-date-border-color: #44403c;
+    /* Prose */
+    --prose-body: #44403c;
+    --prose-headings: #1c1917;
+    --prose-links: #1c1917;
+    --prose-links-hover: #DB2763;
+    --prose-underline: #1c1917;
+    --prose-underline-hover: #DB2763;
+    --prose-bold: #1c1917;
+    --prose-counters: #1c1917;
+    --prose-bullets: #1c1917;
+    --prose-pre-bg: #221c19;
+    /* Card */
+    --card-bg-color: #e4ba5e22;
+    --card-title-color: #1c1917;
+    --card-link-color: #DB2763;
+    --card-date-color: #44403c;
+    --card-date-border-color: #44403c;
   }
 
   .dark-theme {
@@ -64,7 +202,8 @@
     --body-color: #8E92A8;
     --link-color: #d4d4d8;
     --link-hover-color: #EA5376;
-    --accented-text: #EA5376;
+    --accented-text-1: #EA5376;
+    --accented-text-2: #ec38aa;
     /* Index */
     --card-border-color: #294e8266;
     --resume-heading-color: #fafafa;
