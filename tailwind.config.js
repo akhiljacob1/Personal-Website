@@ -61,7 +61,7 @@ module.exports = {
           'product-name': 'var(--product-name-color)',
           'product-description': 'var(--product-description-color)',
           // Articles index
-          'article-date-border': 'var(--article-date-border-color)',
+          'date-border': 'var(--date-border-color)',
           // Article
           'back-btn-border': 'var(--back-border-color)',
           'back-btn-border-hover': 'var(--back-btn-border-hover-color)',
