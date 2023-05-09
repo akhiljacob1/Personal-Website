@@ -1,37 +1,15 @@
 import { Head, Html, Main, NextScript } from 'next/document'
 
 const modeScript = `
-  let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-
   updateMode()
-  darkModeMediaQuery.addEventListener('change', updateModeWithoutTransitions)
-  window.addEventListener('storage', updateModeWithoutTransitions)
-
   function updateMode() {
-    let isSystemDarkMode = darkModeMediaQuery.matches
-    let isDarkMode = window.localStorage.isDarkMode === 'true' || (!('isDarkMode' in window.localStorage) && isSystemDarkMode)
+    let isDarkMode = window.localStorage.theme === 'dark' || !('theme' in window.localStorage)
 
     if (isDarkMode) {
-      document.documentElement.classList.add('dark')
+      document.documentElement.classList.add('dark-theme')
     } else {
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.add(window.localStorage.theme)
     }
-
-    if (isDarkMode === isSystemDarkMode) {
-      delete window.localStorage.isDarkMode
-    }
-  }
-
-  function disableTransitionsTemporarily() {
-    document.documentElement.classList.add('[&_*]:!transition-none')
-    window.setTimeout(() => {
-      document.documentElement.classList.remove('[&_*]:!transition-none')
-    }, 0)
-  }
-
-  function updateModeWithoutTransitions() {
-    disableTransitionsTemporarily()
-    updateMode()
   }
 `
 
@@ -51,7 +29,8 @@ export default function Document() {
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
         />
       </Head>
-      <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
+      {/* set bg-color here to choose the color that appears on the edge when we scroll and reach that edge. */}
+      <body className="flex h-full flex-col bg-no-repeat bg-gradient-to-b bg-thematic-bg-1 from-thematic-bg-1 via-thematic-bg-2 to-thematic-bg-3 to-50%">
         <Main />
         <NextScript />
       </body>
