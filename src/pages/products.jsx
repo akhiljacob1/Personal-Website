@@ -6,6 +6,8 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import LogoDishy from '@/images/logos/dishy.png'
 import LogoZedball from '@/images/logos/zedball.png'
 import LogoNextmove from '@/images/logos/nextmove.png'
+import { motion } from "framer-motion"
+import { StaggerContainer, StaggerItem } from '@/components/FadeInMotion'
 
 const products = [
   {
@@ -54,37 +56,41 @@ export default function Products() {
         title="Products I've worked on."
         intro="I'm a versatile developer and have worked on a variety of projects. Here are some of the software products I've built. Aside from my main hustle, I have some ideas brewing in the background. I'll share them here soon... hopefully 🤞"
       >
-        <ul
-          role="list"
+        <motion.ul
           className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+          variants={StaggerContainer}
+          initial="hidden"
+          animate="visible"
+          role="list"
         >
           {products.map((product) => (
-            <Card
-              as="li"
-              key={product.name}
-              className="flex-cols flex justify-between"
-            >
-              <div>
-                <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full shadow-md shadow-zinc-800/5 border border-thematic-company-icon-border bg-thematic-company-icon-bg">
-                  <Image
-                    src={product.logo}
-                    alt=""
-                    className="w-9"
-                    unoptimized
-                  />
+            <motion.li key={product} className="item" variants={StaggerItem}>
+              <Card
+                key={product.name}
+                className="flex-cols flex justify-between"
+              >
+                <div>
+                  <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full shadow-md shadow-zinc-800/5 border border-thematic-company-icon-border bg-thematic-company-icon-bg">
+                    <Image
+                      src={product.logo}
+                      alt=""
+                      className="w-9"
+                      unoptimized
+                    />
+                  </div>
+                  <h2 className="mt-6 text-base font-semibold text-thematic-product-name">
+                    <Card.Link href={product.link.href}>{product.name}</Card.Link>
+                  </h2>
+                  <Card.Description>{product.description}</Card.Description>
                 </div>
-                <h2 className="mt-6 text-base font-semibold text-thematic-product-name">
-                  <Card.Link href={product.link.href}>{product.name}</Card.Link>
-                </h2>
-                <Card.Description>{product.description}</Card.Description>
-              </div>
-              <p className="relative z-10 mt-6 flex text-sm font-medium transition group-hover:text-thematic-link-hover text-thematic-link">
-                <LinkIcon className="h-6 w-6 flex-none" />
-                <span className="ml-2">{product.link.label}</span>
-              </p>
-            </Card>
+                <p className="relative z-10 mt-6 flex text-sm font-medium transition group-hover:text-thematic-link-hover text-thematic-link">
+                  <LinkIcon className="h-6 w-6 flex-none" />
+                  <span className="ml-2">{product.link.label}</span>
+                </p>
+              </Card>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </SimpleLayout>
     </>
   )

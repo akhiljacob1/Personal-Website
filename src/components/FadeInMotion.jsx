@@ -16,6 +16,27 @@ export const FadeIn = {
   hidden: { opacity: 0 }
 }
 
+export const StaggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+      delay: 0.4,
+      delayChildren: 0.3,
+      staggerChildren: 0.3
+    }
+  }
+};
+
+export const StaggerItem = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+}
+
 export function FadeInMotion({
   className,
   children,
