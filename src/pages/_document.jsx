@@ -3,10 +3,11 @@ import { Head, Html, Main, NextScript } from 'next/document'
 const modeScript = `
   updateMode()
   function updateMode() {
-    let isDarkMode = window.localStorage.theme === 'dark' || !('theme' in window.localStorage)
+    let isDarkMode = window.localStorage.theme === 'dark-theme' || !('theme' in window.localStorage)
 
     if (isDarkMode) {
       document.documentElement.classList.add('dark-theme')
+      document.documentElement.classList.add('dark')
     } else {
       document.documentElement.classList.add(window.localStorage.theme)
     }

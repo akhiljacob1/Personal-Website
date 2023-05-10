@@ -123,7 +123,7 @@
     /* Index */
     --card-border-color: #fcd34d;
     --resume-heading-color: #1c1917;
-    --company-icon-border-color: #fcd34d55;
+    --company-icon-border-color: #fcd34d00;
     --company-icon-bg-color: #fff8da;
     --company-name-color: #1c1917;
     --company-description-color: #44403c;
@@ -158,6 +158,10 @@
     --nav-underline-strong-color: #DB276366;
     --avatar-container-bg-color: #fff8da;
     --avatar-container-border-color: #fcd34d;
+    --theme-btn-bg-color: #fffbe8;
+    --theme-btn-bg-hover-color: #fffbe8;
+    --theme-btn-border-color: #fcd34d33;
+    --theme-btn-border-hover-color: #fcd34d66;
     /* Footer */
     --footer-divide-color: #fcd34d;
     --footer-copyright-color: #44403c;
@@ -243,6 +247,10 @@
     --nav-underline-strong-color: #EA537A66;
     --avatar-container-bg-color: #192035;
     --avatar-container-border-color: #294e8280;
+    --theme-btn-bg-color: #192035;
+    --theme-btn-bg-hover-color: #192035;
+    --theme-btn-border-color: #ffffff1a;
+    --theme-btn-border-hover-color: #294e8266;
     /* Footer */
     --footer-divide-color: #294e8266;
     --footer-copyright-color: #71717a;

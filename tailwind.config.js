@@ -55,6 +55,10 @@ module.exports = {
           'nav-underline-strong': 'var(--nav-underline-strong-color)',
           'avatar-container-bg': 'var(--avatar-container-bg-color)',
           'avatar-container-border': 'var(--avatar-container-border-color)',
+          'theme-btn-bg': 'var(--theme-btn-bg-color)',
+          'theme-btn-bg-hover': 'var(--theme-btn-bg-hover-color)',
+          'theme-btn-border': 'var(--theme-btn-border-color)',
+          'theme-btn-border-hover': 'var(--theme-btn-border-hover-color)',
           // Footer
           'footer-divide': 'var(--footer-divide-color)',
           'footer-copyright': 'var(--footer-copyright-color)',

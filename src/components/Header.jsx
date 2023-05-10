@@ -193,7 +193,11 @@ function ModeToggle() {
     }
     const classesToRemove = Object.values(themes).filter(cls => cls !== '')
     document.documentElement.classList.remove(...classesToRemove)
-    if (themes[theme].length > 0) {document.documentElement.classList.add(themes[theme])}
+    if (theme != 'dark-theme') { document.documentElement.classList.remove('dark') }
+    if (themes[theme].length > 0) {
+      document.documentElement.classList.add(themes[theme])
+      if (theme == 'dark-theme') { document.documentElement.classList.add('dark') }
+    }
   }, [])
 
   const selectMode = useCallback(() => {
@@ -217,26 +221,18 @@ function ModeToggle() {
       <button
         type="button"
         aria-label="Toggle dark mode"
-        className="group rounded-full px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur transition"
+        className="group rounded-full px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur transition hidden dark:block bg-thematic-theme-btn-bg hover:bg-thematic-theme-btn-bg-hover ring-thematic-theme-btn-border hover:ring-thematic-theme-btn-border-hover"
         onClick={() => setTheme('light-theme')}
       >
-        <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600" />
+        <SunIcon className="h-6 w-6 fill-amber-300 stroke-amber-400 transition group-hover:stroke-amber-400" />
       </button>
       <button
         type="button"
         aria-label="Toggle dark mode"
-        className="group rounded-full px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur transition"
+        className="group rounded-full px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur transition dark:hidden bg-thematic-theme-btn-bg hover:bg-thematic-theme-btn-bg-hover ring-thematic-theme-btn-border hover:ring-thematic-theme-btn-border-hover"
         onClick={() => setTheme('dark-theme')}
       >
-        <MoonIcon className="h-6 w-6 fill-zinc-700 stroke-zinc-500 transition [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400" />
-      </button>
-      <button
-        type="button"
-        aria-label="Toggle dark mode"
-        className="group rounded-full px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur transition"
-        onClick={() => setTheme('amoled-theme')}
-      >
-        <MoonIcon className="h-6 w-6 fill-zinc-700 stroke-zinc-500 transition [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400" />
+        <MoonIcon className="h-6 w-6 fill-amber-300 stroke-amber-400 transition group-hover:stroke-amber-400"/>
       </button>
     </>
   )
