@@ -184,10 +184,12 @@
     --prose-links: #1c1917;
     --prose-links-hover: #DB2763;
     --prose-underline: #1c1917;
-    --prose-underline-hover: #DB2763;
+    --prose-underline-hover: #DB276300;
     --prose-bold: #1c1917;
     --prose-counters: #1c1917;
     --prose-bullets: #1c1917;
+    --prose-code: #3f3f46;
+    --prose-code-bg: #a8a29e33;
     --prose-pre-bg: #221c19;
     /* Card */
     --card-bg-color: #e4ba5e22;
@@ -273,10 +275,12 @@
     --prose-links: #d4d4d8;
     --prose-links-hover: #EA5376;
     --prose-underline: #d4d4d8;
-    --prose-underline-hover: #EA5376;
+    --prose-underline-hover: #EA537600;
     --prose-bold: #d4d4d8;
     --prose-counters: #d4d4d8;
     --prose-bullets: #d4d4d8;
+    --prose-code: #7f7f87;
+    --prose-code-bg: #a8a29e33;
     --prose-pre-bg: #030820;
     /* Card */
     --card-bg-color: #1f293766;
@@ -284,5 +288,14 @@
     --card-link-color: #EA5376;
     --card-date-color: #71717a;
     --card-date-border-color: #71717a;
+  }
+
+  /* Make content scrollable but hide scrollbar */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hide-scrollbar {
+    overflow: auto;
   }
 }
