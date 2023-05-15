@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { Container } from '@/components/Container'
 import { Prose } from '@/components/Prose'
 import { formatDate } from '@/lib/formatDate'
+import { TypeAnimation } from 'react-type-animation'
 
 function ArrowLeftIcon(props) {
   return (
@@ -52,7 +53,13 @@ export function ArticleLayout({
             <article>
               <header className="flex flex-col">
                 <h1 className="mt-6 text-4xl font-bold tracking-tight text-thematic-heading sm:text-5xl">
-                  {meta.title}
+                  <TypeAnimation
+                    sequence={[
+                      meta.title,
+                    ]}
+                    speed={95}
+                    cursor={false}
+                  />
                 </h1>
                 <time
                   dateTime={meta.date}
