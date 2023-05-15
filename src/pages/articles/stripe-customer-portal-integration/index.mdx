@@ -10,7 +10,7 @@ export const meta = {
   date: '2023-04-03',
   title: 'Integrating Stripe customer portal with Ruby on Rails',
   description:
-    'Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system.',
+    'Integrating payments into your app can be a long task. Thankfully Stripe makes this easier by creating the customer portal which you can integrate into your app much more easily. It even allows the interface to be branded with your company colors.',
 }
 
 export default (props) => <ArticleLayout meta={meta} {...props} />
@@ -115,9 +115,9 @@ With the basic plan pricing added to the credentials file, you can now use it in
 ```rb
 # app/models/user.rb
 enum plan: {
-    basic_monthly: 0,
-    basic_yearly: 1
-  }
+  basic_monthly: 0,
+  basic_yearly: 1
+}
 
 before_validation :create_customer_on_stripe, on: :create
 

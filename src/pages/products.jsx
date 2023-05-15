@@ -25,7 +25,7 @@ const products = [
   },
   {
     name: 'Dishy',
-    description: 'Food delivery platform for healthy meals.',
+    description: 'Food delivery platform for healthy meals, generating revenue upwards of €50k/mo.',
     link: { href: 'https://getdishy.com', label: 'getdishy.com' },
     logo: LogoDishy,
   },

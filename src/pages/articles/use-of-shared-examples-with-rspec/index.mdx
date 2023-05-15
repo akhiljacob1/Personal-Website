@@ -1,0 +1,238 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Akhil Jacob',
+  date: '2023-05-12',
+  title: 'Use of shared examples with RSpec',
+  description:
+    "Sometimes we find that the code we're writing is starting to get repetitive. In times like these, we should be thinking if there are any opportunities to refactor. I used RSpec's shared examples to refactor my tests to make my code modular and save time.",
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+## Initial setup
+
+I was working on a Rails project the other day and had to write a few tests which were very similar to each other. This sent my senses tingling and a sudden urge to [DRY](https://riptutorial.com/ruby-on-rails/example/3932/don-t-repeat-yourself--dry-) up my code swept through me. I started wondering if there was any way I could use RSpec's shared examples to do this.
+
+For this demo, I've kept it simple with a `User` model and a `Post` model. Let's say that users can have roles such as Bronze, Silver and Gold. Each role has its own limitations - Bronze users can only create 2 posts, Silver users can create 4, and Gold users can create 6.
+
+This is what I was working with.
+
+```rb
+# app/models/user.rb
+class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
+  enum role: {
+    bronze: 0,
+    silver: 1,
+    gold: 2
+  }
+
+  has_many :posts
+end
+```
+
+```rb
+# app/models/post.rb
+class Post < ApplicationRecord
+  belongs_to :user
+  validates_with RoleValidator
+end
+```
+
+```rb
+# app/models/concerns/role_validator.rb
+class RoleValidator < ActiveModel::Validator
+  def validate(record)
+    user = record.user
+
+    if user.bronze? && user.posts.count >= 2
+      record.errors.add :base, 'Limit reached.'
+    elsif user.silver? && user.posts.count >= 4
+      record.errors.add :base, 'Limit reached.'
+    elsif user.gold? && user.posts.count >= 6
+      record.errors.add :base, 'Limit reached.'
+    end
+  end
+end
+```
+
+## Let's get testing
+
+I know the code below is really long. Don't be put off. Just try to make sense of the first two tests and you'll see that the other tests are very similar. Here goes 🫣
+
+```rb
+# spec/models/post_spec.rb
+require 'rails_helper'
+
+RSpec.describe Post, type: :model do
+  describe 'Post validations' do
+    context 'when bronze user' do
+      user = User.create(email: 'user1@email.com', password: 'password', role: :bronze)
+      it 'is valid when post count is below the limit (2)' do
+        Post.create(user:)
+        post = Post.new(user:)
+
+        assert post.valid?
+      end
+
+      it 'is invalid when post count is at or above the limit (2)' do
+        2.times { Post.create(user:) }
+        post = Post.new(user:)
+
+        refute post.valid?
+      end
+    end
+
+    context 'when silver user' do
+      user = User.create(email: 'user2@email.com', password: 'password', role: :silver)
+      it 'is valid when post count is below the limit (4)' do
+        3.times { Post.create(user:) }
+        post = Post.new(user:)
+
+        assert post.valid?
+      end
+
+      it 'is invalid when post count is at or above the limit (4)' do
+        4.times { Post.create(user:) }
+        post = Post.new(user:)
+
+        refute post.valid?
+      end
+    end
+
+    context 'when gold user' do
+      user = User.create(email: 'user3@email.com', password: 'password', role: :gold)
+      it 'is valid when post count is below the limit (6)' do
+        5.times { Post.create(user:) }
+        post = Post.new(user:)
+
+        assert post.valid?
+      end
+
+      it 'is invalid when post count is at or above the limit (6)' do
+        6.times { Post.create(user:) }
+        post = Post.new(user:)
+
+        refute post.valid?
+      end
+    end
+  end
+end
+```
+
+As I was writing these tests I began noticing there was some repetition of the code with some small differences. I decided to try DRYing up the code with a shared example.
+
+## Introducing RSpec shared examples
+
+In all the role contexts, we are first creating posts until the post count is 1 below the limit. Then we create posts until the posts count is at the limit.
+
+I also noticed that the only things changing between the tests were the limits and the roles of the user. So I extracted the rest of it into a shared example and passed in the `limit` and the `user` in the params. Remember the big block of code from earlier? It looks like this now. Not so scary now huh! 😎
+
+```rb
+# spec/models/post_spec.rb
+require 'rails_helper'
+
+RSpec.describe Post, type: :model do
+  describe 'Post validations' do
+    context 'when bronze user' do
+      user = User.create(email: 'user1@email.com', password: 'password', role: :bronze)
+      it_behaves_like 'post', {limit: 2, user: }
+    end
+
+    context 'when silver user' do
+      user = User.create(email: 'user2@email.com', password: 'password', role: :silver)
+      it_behaves_like 'post', {limit: 4, user: }
+    end
+
+    context 'when gold user' do
+      user = User.create(email: 'user3@email.com', password: 'password', role: :gold)
+      it_behaves_like 'post', {limit: 6, user: }
+    end
+  end
+end
+```
+
+```rb
+# spec/support/post_examples_spec.rb
+RSpec.shared_examples 'post' do |params|
+  limit = params[:limit]
+  user = params[:user]
+
+  it 'is valid when post count is below the limit' do
+    (limit - 1).times { Post.create(user:) }
+    post = Post.new(user:)
+
+    assert post.valid?
+  end
+
+  it 'is invalid when post count is at or above the limit' do
+    limit.times { Post.create(user:) }
+    post = Post.new(user:)
+
+    refute post.valid?
+  end
+end
+```
+
+## Other opportunities for refactoring
+
+I can refactor even more by using constants for the limits. I created a `constants.rb` file to hold these and any future constants.
+
+```rb
+# config/initializers/constants.rb
+BRONZE_LIMIT = 2
+SILVER_LIMIT = 4
+GOLD_LIMIT = 6
+```
+
+```rb
+# app/models/concerns/role_validator.rb
+class RoleValidator < ActiveModel::Validator
+  def validate(record)
+    user = record.user
+
+    if user.bronze? && user.posts.count >= BRONZE_LIMIT
+      record.errors.add :base, 'Limit reached.'
+    elsif user.silver? && user.posts.count >= SILVER_LIMIT
+      record.errors.add :base, 'Limit reached.'
+    elsif user.gold? && user.posts.count >= GOLD_LIMIT
+      record.errors.add :base, 'Limit reached.'
+    end
+  end
+end
+```
+
+```rb
+# spec/models/post_spec.rb
+require 'rails_helper'
+
+RSpec.describe Post, type: :model do
+  describe 'Post validations' do
+    context 'when bronze user' do
+      user = User.create(email: 'user1@email.com', password: 'password', role: :bronze)
+      it_behaves_like 'post', {limit: BRONZE_LIMIT, user: }
+    end
+
+    context 'when silver user' do
+      user = User.create(email: 'user2@email.com', password: 'password', role: :silver)
+      it_behaves_like 'post', {limit: SILVER_LIMIT, user: }
+    end
+
+    context 'when gold user' do
+      user = User.create(email: 'user3@email.com', password: 'password', role: :gold)
+      it_behaves_like 'post', {limit: GOLD_LIMIT, user: }
+    end
+  end
+end
+```
+
+This means that if the limits need to be changed in the future, I only have to change it in one place. And guess what? No need to spend valuable developer time updating the tests because they don't even need to be changed. They'll be passing with flying colors!
+
+Oh also! Another opportunity for refactoring is to use a gem like [FactoryBot](https://github.com/thoughtbot/factory_bot) to create the `User` records instead. But I'm skipping that for now as it's not in the scope of this article and my coffee is calling me.
+
+Enjoy the time saved and the clean code! ☕️
