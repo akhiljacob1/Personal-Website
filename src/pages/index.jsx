@@ -196,11 +196,11 @@ function Socials() {
           </SocialLink>
         ))}
         <SocialLink
-          href="mailto:akhiljacob98@gmail.com"
+          href="mailto:im@akhiljacob.com"
           icon={MailIcon}
           className="mt-8 border-t pt-6 border-thematic-card-border"
         >
-          akhiljacob98@gmail.com
+          im@akhiljacob.com
         </SocialLink>
       </ul>
     </div>

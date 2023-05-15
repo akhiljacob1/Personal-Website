@@ -23,7 +23,7 @@ export function Footer() {
     {
       name: 'Email',
       icon: MailIcon,
-      link: 'mailto:akhiljacob98@gmail.com',
+      link: 'mailto:im@akhiljacob.com',
     },
   ]
   return (
