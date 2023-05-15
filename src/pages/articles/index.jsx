@@ -40,15 +40,15 @@ export default function ArticlesIndex({ articles }) {
   return (
     <>
       <Head>
-        <title>Articles - Spencer Sharp</title>
+        <title>Articles - Akhil Jacob</title>
         <meta
           name="description"
-          content="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
+          content="A collection of good practices, tutorials, lessons learned and more.."
         />
       </Head>
       <SimpleLayout
-        title="Writing on software design, company building, and the aerospace industry."
-        intro="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
+        title="Coding insights, software tutorials, and brainwaves from a curious mind."
+        intro="A collection of good practices, tutorials, lessons learned and more."
       >
         <div className="md:border-l md:pl-6 md:border-thematic-date-border">
           <motion.ul

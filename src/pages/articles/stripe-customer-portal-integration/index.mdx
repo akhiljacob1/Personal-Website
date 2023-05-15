@@ -17,7 +17,7 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
 
 ## Overview
 
-- This tutorial shows how to start a basic app and implement stripe. If you're integrating the customer portal into an existing app, you can skip to [Customer portal integration](#customer-portal-integration).
+- This tutorial shows how to start a basic app and implement Stripe customer portal. If you're integrating the customer portal into an existing app, you can skip to [Customer portal integration](#customer-portal-integration).
 - This tutorial assumes you have experience creating a basic rails app.
 - Gems used: [stripe](https://github.com/stripe/stripe-ruby), [stripe_event](https://github.com/integrallis/stripe_event), [devise](https://github.com/heartcombo/devise) (optional).
 
@@ -49,9 +49,9 @@ To set up user authentication, please follow the instructions provided on the Gi
 
 ## Customer portal integration <a id="customer-portal-integration"></a>
 
-Next you'll have to install the stripe gem by adding `gem ’stripe’` to your Gemfile and then run `bundle`.
+Next you'll have to install the stripe gem by adding `gem 'stripe'` to your Gemfile and then run `bundle`.
 
-Oh also, you need to create a Stripe account at https://stripe.com. Once you're in, navigate to https://dashboard.stripe.com/account/apikeys and grab your secret key. We'll keep this safe in your credentials file 🔐
+Oh also, you need to create a Stripe account at https://stripe.com. Once you're in, navigate to https://dashboard.stripe.com/account/apikeys and grab your secret key (starts with 'sk\_'). We'll keep this safe in your credentials file 🔐
 
 Open your credentials file by running this command in your terminal. This will open the credentials file in nano editor. You can replace `nano` with your preferred editor.
 
@@ -80,9 +80,9 @@ Add the following line to this file to initialize the Stripe API key:
 Stripe.api_key = Rails.application.credentials.stripe[:secret_key]
 ```
 
-Then add Stripe fields to your user model as below. The `stripe_customer_id` will hold the the unique customer id of the user on Stripe. The `subscription_status` column will hold information about whether the subscription is active, trialing or cancelled etc. The `plan` column will hold the which of the products they are currently subscribed to. Here are the commands you'll need.
+Then add Stripe fields to your user model as below. The `stripe_customer_id` will hold the the unique customer id of the user on Stripe. The `subscription_status` column will hold information about whether the subscription is active, trialing or cancelled etc. The `plan` column will hold the name of the product they are currently subscribed to. Here are the commands you'll need.
 
-_Note: Don't forget to make the plan column an integer type, because we'll be using it as an enum later on._
+_Note: We're making the plan column an integer type, because we'll be using it as an enum later on._
 
 ```bash
 > rails g migration add_stripe_fields_to_users stripe_customer_id:string subscription_status:string plan:integer
@@ -119,7 +119,7 @@ enum plan: {
     basic_yearly: 1
   }
 
-before_validation :create_on_stripe, on: :create
+before_validation :create_customer_on_stripe, on: :create
 
 private
 
@@ -223,7 +223,7 @@ gem 'stripe_event'
 mount StripeEvent::Engine, at: '/stripe/webhooks'
 ```
 
-Okay it's time to listen to webhooks from Stripe. To do this, we need to find some headphones 🎧. Just kidding. Run the following command in a separate terminal window:
+Okay it's time to listen to webhooks from Stripe. To do this, we need a pair of headphones 🎧. Just kidding. Run the following command in a separate terminal window:
 
 ```bash
 > stripe listen --forward-to localhost:3000/stripe/webhooks
@@ -323,4 +323,6 @@ module Stripe
 end
 ```
 
-Now when you go to the Customer Portal and update subscription, the change will be in reflected in your database. And just like that you've integrated Stripe customer portal into a Rails app! Be proud! 😎
+Make sure that you're listening to Stripe webhooks in a seperate terminal. Now when you go to the Customer Portal and update subscription, the change will be in reflected in your database. And just like that you've integrated Stripe customer portal into a Rails app!
+
+Be proud! 😎
