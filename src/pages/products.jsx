@@ -13,7 +13,7 @@ const products = [
   {
     name: 'Nextmove',
     description: 'Open text feedback tool drawing insights with AI.',
-    link: { href: '#', label: 'nextmove.ai' },
+    link: { href: 'https://nextmove.ai', label: 'nextmove.ai' },
     logo: LogoNextmove,
   },
   {

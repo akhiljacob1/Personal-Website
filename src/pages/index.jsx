@@ -271,9 +271,9 @@ export default function Home() {
                 </p>
                 <p>
                   {"I'm always excited to learn about new tech and adapt to changing times. In the past two years, I've been exploring the web3 space and AI, which led me to work on exciting projects like "}
-                  <TextLink href="#">Zedball</TextLink>
+                  <TextLink href="https://zedball.com">Zedball</TextLink>
                   {" and "}
-                  <TextLink href="#">Nextmove</TextLink>.
+                  <TextLink href="https://nextmove.ai">Nextmove</TextLink>.
                 </p>
                 <p>
                   I'm always open to new ideas and opportunities. If you have a
