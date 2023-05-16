@@ -276,9 +276,9 @@ export default function Home() {
                   <TextLink href="https://nextmove.ai">Nextmove</TextLink>.
                 </p>
                 <p>
-                  I'm always open to new ideas and opportunities. If you have a
-                  project you want to chat about or just want to say hi, reach
-                  out to me! :)
+                  I'm always open to new ideas and opportunities. Whether you'd
+                  like to chat about a project or just drop a friendly greeting,
+                  feel free to get in touch!
                 </p>
               </div>
             </div>

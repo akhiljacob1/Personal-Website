@@ -223,7 +223,7 @@ gem 'stripe_event'
 mount StripeEvent::Engine, at: '/stripe/webhooks'
 ```
 
-Okay it's time to listen to webhooks from Stripe. To do this, we need a pair of headphones 🎧. Just kidding. Run the following command in a separate terminal window:
+Okay it's time to listen to webhooks from Stripe. For this, we need a pair of headphones 🎧. Just kidding. Run the following command in a separate terminal window:
 
 ```bash
 > stripe listen --forward-to localhost:3000/stripe/webhooks
