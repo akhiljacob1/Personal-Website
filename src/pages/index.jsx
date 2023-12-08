@@ -155,7 +155,7 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href={'/resume.pdf'} className="group mt-6 w-full">
+      <Button href={'/Akhil.pdf'} className="group mt-6 w-full">
         Open CV
         <ArrowDownIcon className="h-4 w-4 stroke-thematic-btn-text transition group-hover:stroke-thematic-btn-text-hover group-active:stroke-thematic-btn-text-hover" />
       </Button>
