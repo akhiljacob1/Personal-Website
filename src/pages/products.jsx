@@ -6,30 +6,49 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import LogoDishy from '@/images/logos/dishy.png'
 import LogoZedball from '@/images/logos/zedball.png'
 import LogoNextmove from '@/images/logos/nextmove.png'
+import LogoCookieChimp from '@/images/logos/cookiechimp.png'
+import LogoUrbanVolt from '@/images/logos/urbanvolt.png'
 import { motion } from "framer-motion"
 import { StaggerContainer, StaggerItem } from '@/components/FadeInMotion'
 
 const products = [
   {
-    name: 'Nextmove',
-    description: 'Open text feedback tool drawing insights with AI.',
-    link: { href: 'https://nextmove.ai', label: 'nextmove.ai' },
-    logo: LogoNextmove,
-  },
-  {
+    id: 1,
     name: 'Zedball',
     description:
       'Multiplayer football manager game with Sorare NFT collectible cards.',
-    link: { href: 'https://zedball.com', label: 'zedball.com' },
+    link: null,
     logo: LogoZedball,
   },
   {
+    id: 2,
+    name: 'Nextmove',
+    description: 'Open text feedback tool drawing insights with AI.',
+    link: null,
+    logo: LogoNextmove,
+  },
+  {
+    id: 3,
     name: 'Dishy',
     description: 'Food delivery platform for healthy meals, generating revenue upwards of €50k/mo.',
     link: { href: 'https://getdishy.com', label: 'getdishy.com' },
     logo: LogoDishy,
   },
-]
+  {
+    id: 4,
+    name: 'CookieChimp',
+    description: 'AI-powered Consent Management Platform.',
+    link: { href: 'https://cookiechimp.com', label: 'cookiechimp.ai' },
+    logo: LogoCookieChimp,
+  },
+  {
+    id: 5,
+    name: 'UrbanVolt',
+    description: 'Award-winning global provider of affordable clean solar energy.',
+    link: { href: 'https://urbanvolt.com/', label: 'urbanvolt.com' },
+    logo: LogoUrbanVolt,
+  },
+].reverse()
 
 function LinkIcon(props) {
   return (
@@ -64,10 +83,10 @@ export default function Products() {
           role="list"
         >
           {products.map((product) => (
-            <motion.li key={product} className="item" variants={StaggerItem}>
+            <motion.li key={product.id} className="item" variants={StaggerItem}>
               <Card
                 key={product.name}
-                className="flex-cols flex justify-between"
+                className="flex-cols flex h-full justify-between"
               >
                 <div>
                   <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full shadow-md shadow-zinc-800/5 border border-thematic-company-icon-border bg-thematic-company-icon-bg">
@@ -79,14 +98,16 @@ export default function Products() {
                     />
                   </div>
                   <h2 className="mt-6 text-base font-semibold text-thematic-product-name">
-                    <Card.Link href={product.link.href}>{product.name}</Card.Link>
+                    <Card.Link href={product.link?.href || ''}>{product.name}</Card.Link>
                   </h2>
                   <Card.Description>{product.description}</Card.Description>
                 </div>
-                <p className="relative z-10 mt-6 flex text-sm font-medium transition group-hover:text-thematic-link-hover text-thematic-link">
-                  <LinkIcon className="h-6 w-6 flex-none" />
-                  <span className="ml-2">{product.link.label}</span>
-                </p>
+                {product.link && (
+                  <p className="relative z-10 mt-6 flex text-sm font-medium transition group-hover:text-thematic-link-hover text-thematic-link">
+                    <LinkIcon className="h-6 w-6 flex-none" />
+                    <span className="ml-2">{product.link.label}</span>
+                  </p>
+                )}
               </Card>
             </motion.li>
           ))}
