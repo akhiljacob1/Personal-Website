@@ -290,6 +290,30 @@
     --card-date-border-color: #71717a;
   }
 
+  ::selection {
+    background: #EA5376;
+  }
+
+  ::-moz-selection {
+    background: #EA5376;
+  }
+
+  .light-theme ::selection {
+    color: #fff;
+  }
+
+  .light-theme ::-moz-selection {
+    color: #fff;
+  }
+
+  .dark-theme ::selection {
+    color: #000;
+  }
+
+  .dark-theme ::-moz-selection {
+    color: #000;
+  }
+
   /* Make content scrollable but hide scrollbar */
   .hide-scrollbar::-webkit-scrollbar {
     display: none;

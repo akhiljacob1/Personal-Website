@@ -28,10 +28,12 @@ Card.Link = function CardLink({ children, ...props }) {
   return (
     <>
       <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 bg-thematic-card-bg sm:-inset-x-6 sm:rounded-2xl" />
-      <Link {...props}>
-        <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-        <span className="relative z-10">{children}</span>
-      </Link>
+      {props.href && (
+        <Link {...props}>
+          <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
+          <span className="relative z-10">{children}</span>
+        </Link>
+      )}
     </>
   )
 }
@@ -39,7 +41,7 @@ Card.Link = function CardLink({ children, ...props }) {
 Card.Title = function CardTitle({ as: Component = 'h2', href, children }) {
   return (
     <Component className="text-base font-semibold tracking-tight text-thematic-card-title">
-      {href ? <Card.Link href={href}>{children}</Card.Link> : children}
+      {href != '' ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
 }

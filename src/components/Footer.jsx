@@ -42,6 +42,7 @@ export function Footer() {
                   />
                 ))}
               </div>
+              <p className="text-sm font-medium text-thematic-footer-copyright">Made with Next.js and Tailwind</p>
               <p className="text-sm font-medium text-thematic-footer-copyright">
                 &copy; {new Date().getFullYear()} • Akhil Jacob
               </p>

@@ -10,8 +10,8 @@ import { FadeIn, FadeInMotion } from '@/components/FadeInMotion'
 import { AnimateSVG } from '@/components/AnimateSVG'
 import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/SocialIcons'
 import LogoDishy from '@/images/logos/dishy.png'
-import LogoZedball from '@/images/logos/zedball.png'
-import LogoNextmove from '@/images/logos/nextmove.png'
+import LogoCookieChimp from '@/images/logos/cookiechimp.png'
+import LogoUrbanVolt from '@/images/logos/urbanvolt.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 
@@ -104,17 +104,16 @@ export function SocialLink({ className, href, children, icon: Icon }) {
 function Resume() {
   let resume = [
     {
-      company: 'Nextmove',
+      company: 'CookieChimp',
+      description: 'AI-powered Consent Management Platform.',
       title: 'Full-stack Developer',
-      description: 'Open text feedback tool drawing insights with AI.',
-      logo: LogoNextmove,
+      logo: LogoCookieChimp,
     },
     {
-      company: 'Zedball',
-      title: 'Junior Full-stack Developer',
-      description:
-        'Multiplayer football manager game with Sorare NFT collectible cards.',
-      logo: LogoZedball,
+      company: 'UrbanVolt',
+      description: 'Global provider of affordable clean solar energy.',
+      title: 'Full-stack Developer',
+      logo: LogoUrbanVolt,
     },
     {
       company: 'Dishy',
@@ -207,6 +206,17 @@ function Socials() {
   )
 }
 
+function YearsOfExperience() {
+  var start_date = new Date(2021, 4, 1);
+  var timeDifference = Date.now() - start_date;
+  var experienceDate = new Date(timeDifference); // miliseconds from epoch
+  var yearsOfExperience = experienceDate.getUTCFullYear() - 1970;
+  if (experienceDate.getUTCMonth() > 5 || (experienceDate.getUTCMonth() === 5 && experienceDate.getUTCDate() >= 1)) {
+    yearsOfExperience += 1; // Round up if past May 1st
+  }
+  return yearsOfExperience
+}
+
 export default function Home() {
   return (
     <>
@@ -246,7 +256,7 @@ export default function Home() {
           <p className="mt-2 text-base text-thematic-subheading">
             Hey! I'm Akhil, a full-stack developer that loves creating web
             applications. I've worked on various projects, including a web3 game
-            and a SaaS app. I am passionate about learning and view every
+            and SaaS apps with AI integration. I am passionate about learning and view every
             challenge and opportunity as a way to continue my growth.
           </p>
         </FadeInMotion>
@@ -259,8 +269,8 @@ export default function Home() {
               <div className="space-y-7 text-base text-thematic-body">
                 <p>
                   I'm a developer with a passion for creating cool things. I've
-                  been tinkering with code for about four years now, but it's
-                  only been two years since I started my professional journey.
+                  been tinkering with code for about {YearsOfExperience() + 1} years now, but it's
+                  only been {YearsOfExperience()} years since I started my professional journey.
                 </p>
                 <p>
                   Before I became a full-fledged developer, I used to dabble in
@@ -270,10 +280,8 @@ export default function Home() {
                   with clients to develop web apps.
                 </p>
                 <p>
-                  {"I'm always excited to learn about new tech and adapt to changing times. In the past two years, I've been exploring the web3 space and AI, which led me to work on exciting projects like "}
-                  <TextLink href="https://zedball.com">Zedball</TextLink>
-                  {" and "}
-                  <TextLink href="https://nextmove.ai">Nextmove</TextLink>.
+                  {"I'm always excited to learn about new tech and adapt to changing times. In the past two years, I've been exploring the web3 space and AI, which led me to work on exciting projects like Zedball and Nextmove and with companies like "}
+                  <TextLink href="https://www.digitalgenius.com">Digital Genius</TextLink>.
                 </p>
                 <p>
                   I'm always open to new ideas and opportunities. Whether you'd
