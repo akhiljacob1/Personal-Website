@@ -154,7 +154,7 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href={'/Akhil.pdf'} className="group mt-6 w-full">
+      <Button href={'/Akhil - Resume.pdf'} className="group mt-6 w-full">
         Open CV
         <ArrowDownIcon className="h-4 w-4 stroke-thematic-btn-text transition group-hover:stroke-thematic-btn-text-hover group-active:stroke-thematic-btn-text-hover" />
       </Button>
@@ -207,7 +207,7 @@ function Socials() {
 }
 
 function YearsOfExperience() {
-  var start_date = new Date(2021, 4, 1);
+  var start_date = new Date(2022, 4, 1);
   var timeDifference = Date.now() - start_date;
   var experienceDate = new Date(timeDifference); // miliseconds from epoch
   var yearsOfExperience = experienceDate.getUTCFullYear() - 1970;
@@ -269,8 +269,8 @@ export default function Home() {
               <div className="space-y-7 text-base text-thematic-body">
                 <p>
                   I'm a developer with a passion for creating cool things. I've
-                  been tinkering with code for about {YearsOfExperience() + 1} years now, but it's
-                  only been {YearsOfExperience()} years since I started my professional journey.
+                  been tinkering with code for about {YearsOfExperience() + 1} years now, and it's
+                  been {YearsOfExperience()} years since I started my professional journey.
                 </p>
                 <p>
                   Before I became a full-fledged developer, I used to dabble in
