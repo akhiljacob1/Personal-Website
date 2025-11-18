@@ -8,7 +8,7 @@ import { Container } from '@/components/Container'
 import { TypeAnimation } from 'react-type-animation'
 import { FadeIn, FadeInMotion } from '@/components/FadeInMotion'
 import { AnimateSVG } from '@/components/AnimateSVG'
-import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon, XIcon } from '@/components/SocialIcons'
 import LogoDishy from '@/images/logos/dishy.png'
 import LogoCookieChimp from '@/images/logos/cookiechimp.png'
 import LogoUrbanVolt from '@/images/logos/urbanvolt.png'
@@ -175,9 +175,9 @@ function Socials() {
       link: 'https://github.com/akhiljacob1',
     },
     {
-      name: 'Twitter',
-      icon: TwitterIcon,
-      link: 'https://twitter.com/TheAkhilJacob',
+      name: 'X',
+      icon: XIcon,
+      link: 'https://x.com/intrepydsailor',
     },
   ]
 

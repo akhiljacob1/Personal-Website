@@ -1,7 +1,7 @@
 import { Container } from '@/components/Container'
 import { SocialLink } from '@/pages/index'
 import { MailIcon } from '@/pages/index'
-import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon, XIcon } from '@/components/SocialIcons'
 
 export function Footer() {
   let socials = [
@@ -16,9 +16,9 @@ export function Footer() {
       link: 'https://github.com/akhiljacob1',
     },
     {
-      name: 'Twitter',
-      icon: TwitterIcon,
-      link: 'https://twitter.com/TheAkhilJacob',
+      name: 'X',
+      icon: XIcon,
+      link: 'https://x.com/intrepydsailor',
     },
     {
       name: 'Email',
