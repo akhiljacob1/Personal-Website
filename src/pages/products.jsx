@@ -98,7 +98,11 @@ export default function Products() {
                     />
                   </div>
                   <h2 className="mt-6 text-base font-semibold text-thematic-product-name">
-                    <Card.Link href={product.link?.href || ''}>{product.name}</Card.Link>
+                    {product.link ? (
+                      <Card.Link href={product.link.href}>{product.name}</Card.Link>
+                    ) : (
+                      <span>{product.name}</span>
+                    )}
                   </h2>
                   <Card.Description>{product.description}</Card.Description>
                 </div>
