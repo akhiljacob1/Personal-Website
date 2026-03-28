@@ -12,6 +12,7 @@ import { GitHubIcon, LinkedInIcon, XIcon } from '@/components/SocialIcons'
 import LogoDishy from '@/images/logos/dishy.png'
 import LogoCookieChimp from '@/images/logos/cookiechimp.png'
 import LogoUrbanVolt from '@/images/logos/urbanvolt.png'
+import LogoIntercom from '@/images/logos/intercom.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 
@@ -104,6 +105,12 @@ export function SocialLink({ className, href, children, icon: Icon }) {
 function Resume() {
   let resume = [
     {
+      company: 'Intercom',
+      description: 'AI-first customer service solution for businesses.',
+      title: 'Product Engineer',
+      logo: LogoIntercom,
+    },
+    {
       company: 'CookieChimp',
       description: 'AI-powered Consent Management Platform.',
       title: 'Full-stack Developer',
@@ -114,12 +121,6 @@ function Resume() {
       description: 'Global provider of affordable clean solar energy.',
       title: 'Full-stack Developer',
       logo: LogoUrbanVolt,
-    },
-    {
-      company: 'Dishy',
-      title: 'Intern Full-stack Developer',
-      description: 'Food delivery platform for healthy meals.',
-      logo: LogoDishy,
     },
   ]
 
@@ -268,25 +269,23 @@ export default function Home() {
             <div className="lg:order-first lg:row-span-2">
               <div className="space-y-7 text-base text-thematic-body">
                 <p>
-                  I'm a developer with a passion for creating cool things. I've
-                  been tinkering with code for about {YearsOfExperience() + 1} years now, and it's
-                  been {YearsOfExperience()} years since I started my professional journey.
+                  I'm a developer with a passion for creating cool and useful things. I've
+                  been tinkering with code for about {YearsOfExperience() + 1} years now,
+                  with {YearsOfExperience()} years of professional experience working with clients
+                  to design and ship web apps.
                 </p>
                 <p>
-                  Before I became a full-fledged developer, I used to dabble in
-                  small personal projects in Python. But then I completed a
-                  six-month internship in full-stack development with Ruby on
-                  Rails and stumbled upon a new interest. Since then I've worked
-                  with clients to develop web apps.
+                  My journey started with small Python projects, but things really
+                  clicked during a full-stack internship with Ruby on Rails. Since
+                  then, I’ve been focused on turning ideas into real, usable products.
                 </p>
                 <p>
-                  {"I'm always excited to learn about new tech and adapt to changing times. In the past two years, I've been exploring the web3 space and AI, which led me to work on exciting projects like Zedball and Nextmove and with companies like "}
-                  <TextLink href="https://www.digitalgenius.com">Digital Genius</TextLink>.
+                  {"I enjoy working at the with emerging tech and practical applications. Over the past couple of years, I’ve been exploring web3 and AI, working on projects like Zedball and collaborating with companies such as "}
+                  <TextLink href="https://www.intercom.com/">Intercom</TextLink> and <TextLink href="https://www.digitalgenius.com">Digital Genius</TextLink>.
                 </p>
                 <p>
-                  I'm always open to new ideas and opportunities. Whether you'd
-                  like to chat about a project or just drop a friendly greeting,
-                  feel free to get in touch!
+                  I’m always learning, experimenting, and looking for what’s next. If you
+                  have an idea, a project, or just want to connect—feel free to reach out.
                 </p>
               </div>
             </div>

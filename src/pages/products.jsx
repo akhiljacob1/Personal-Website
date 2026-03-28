@@ -8,6 +8,7 @@ import LogoZedball from '@/images/logos/zedball.png'
 import LogoNextmove from '@/images/logos/nextmove.png'
 import LogoCookieChimp from '@/images/logos/cookiechimp.png'
 import LogoUrbanVolt from '@/images/logos/urbanvolt.png'
+import LogoIntercom from '@/images/logos/intercom.png'
 import { motion } from "framer-motion"
 import { StaggerContainer, StaggerItem } from '@/components/FadeInMotion'
 
@@ -47,6 +48,13 @@ const products = [
     description: 'Award-winning global provider of affordable clean solar energy.',
     link: { href: 'https://urbanvolt.com/', label: 'urbanvolt.com' },
     logo: LogoUrbanVolt,
+  },
+  {
+    id: 6,
+    name: 'Intercom',
+    description: 'Intercom is an AI-first customer service solution for businesses. ',
+    link: { href: 'https://www.intercom.com/', label: 'intercom.com' },
+    logo: LogoIntercom,
   },
 ].reverse()
 
